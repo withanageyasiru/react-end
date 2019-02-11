@@ -20,7 +20,7 @@ class AssetManage extends React.Component {
                     is succesfully implemented to the system */}
                 <MDBRow>
                     <MDBCol>
-                        <MDBPagination className="d-flex d-sm-inline-flex justify-content-center mb-5 font-weight-bold">
+                        <MDBPagination className="d-flex d-sm-inline-flex justify-content-center mb-1 font-weight-bold">
                             <MDBPageItem>
                                 <MDBNavLink
                                     className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
@@ -48,7 +48,7 @@ class AssetManage extends React.Component {
                         </MDBPagination>
                     </MDBCol>
                 </MDBRow>
-
+                <hr />
                 <div className="AssetManageContent">
                     <Switch>
                         <AuthRoute path="/home/asset_manage/add" component={AssetAdd} props={this.props} />

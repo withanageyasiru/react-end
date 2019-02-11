@@ -8,7 +8,7 @@ class App extends React.Component {
         this.state = {
             isAuthenticated: false,
             isAuthenticating: true,
-            accessToken: "gg",
+            accessToken: "0",
             levelOfAuthentication: 0
         };
     }

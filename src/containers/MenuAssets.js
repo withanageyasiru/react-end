@@ -30,7 +30,7 @@ class MenuAssets extends React.Component {
                             <MDBDropdownItem
                                 hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
                             >
-                                <MDBNavLink to="/home/asset_pool">Asset Pool</MDBNavLink>
+                                <MDBNavLink to="/home/asset_view">View Assets</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
                                 hidden={!(this.emplo || this.all)}
