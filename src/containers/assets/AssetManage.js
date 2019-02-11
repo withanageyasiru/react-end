@@ -24,7 +24,7 @@ class AssetManage extends React.Component {
                             <MDBPageItem>
                                 <MDBNavLink
                                     className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
-                                    to="/home/asset_manage/"
+                                    to="/home/asset_manage/add"
                                 >
                                     Create
                                 </MDBNavLink>
@@ -51,7 +51,7 @@ class AssetManage extends React.Component {
 
                 <div className="AssetManageContent">
                     <Switch>
-                        <AuthRoute exact path="/home/asset_manage/" component={AssetAdd} props={this.props} />
+                        <AuthRoute path="/home/asset_manage/add" component={AssetAdd} props={this.props} />
                         <AuthRoute path="/home/asset_manage/edit" component={AssetEdit} props={this.props} />
                         <AuthRoute path="/home/asset_manage/remove" component={AssetRem} props={this.props} />
                     </Switch>

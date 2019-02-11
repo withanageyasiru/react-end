@@ -1,5 +1,5 @@
 import React from 'react';
-import Message from "./AssetRequest/Message";
+import Message from "../../components/EmpRequest/Message";
 import axios from 'axios';
 // EmpRequests - View assets requested by employees
 // For Admins, Department Heads
