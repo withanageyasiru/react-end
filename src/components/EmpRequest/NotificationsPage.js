@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+/* import React, { Component, Fragment } from 'react';
 import { Button, ToastContainer, toast } from 'mdbreact';
 
 class NotificationsPage extends Component {
@@ -40,4 +40,4 @@ class NotificationsPage extends Component {
     );
   }
 }
-export default NotificationsPage;
+export default NotificationsPage; */
