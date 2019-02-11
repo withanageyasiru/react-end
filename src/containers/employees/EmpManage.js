@@ -24,7 +24,7 @@ class EmpManage extends React.Component {
                             <MDBPageItem>
                                 <MDBNavLink
                                     className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
-                                    to="/home/emp_manage/"
+                                    to="/home/emp_manage/add"
                                 >
                                     Create
                                 </MDBNavLink>
@@ -51,7 +51,7 @@ class EmpManage extends React.Component {
 
                 <div className="EmpManageContent">
                     <Switch>
-                        <AuthRoute exact path="/home/emp_manage/" component={EmpAdd} props={this.props} />
+                        <AuthRoute path="/home/emp_manage/add" component={EmpAdd} props={this.props} />
                         <AuthRoute path="/home/emp_manage/edit" component={EmpEdit} props={this.props} />
                         <AuthRoute path="/home/emp_manage/remove" component={EmpRem} props={this.props} />
                     </Switch>

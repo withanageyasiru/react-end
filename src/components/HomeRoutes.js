@@ -10,7 +10,7 @@ import AssetBreakManage from '../containers/assets/AssetBreakManage';
 import AssetCategory from '../containers/assets/AssetCategory';
 import AssetManage from '../containers/assets/AssetManage';
 import AssetOwned from '../containers/assets/AssetOwned';
-import AssetPoolView from './assetsComponents/AssetPoolView';
+import AssetPoolView from '../containers/assets/AssetPoolView';
 import AssetRequest from '../containers/assets/AssetRequest';
 import AssetTransfer from '../containers/assets/AssetTransfer';
 
