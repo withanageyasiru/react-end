@@ -1,12 +1,9 @@
 import React from "react";
-<<<<<<< HEAD
-=======
 import { Switch } from 'react-router-dom';
 import { MDBPagination, MDBPageItem, MDBNavLink, MDBCol, MDBRow } from 'mdbreact';
 import AuthRoute from '../../components/AuthRoute';
 import PoolView from '../../components/AssetPoolView/PoolView';
 import AssetView from '../../components/AssetPoolView/AssetView';
->>>>>>> 16a8d2cae1f96e524736bc647c5d762f4126eaf5
 
 // AssetPoolView - view all the available assets in the pool
 // For Admins, Department Heads, Finance, Employees
@@ -14,10 +11,6 @@ class AssetPoolView extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div>
-        
-=======
       <div className="AssetPoolView">
         <MDBRow>
           <MDBCol>
@@ -49,7 +42,6 @@ class AssetPoolView extends React.Component {
           </Switch>
         </div>
 
->>>>>>> 16a8d2cae1f96e524736bc647c5d762f4126eaf5
       </div>
     );
   }
