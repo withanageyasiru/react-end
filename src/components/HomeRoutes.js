@@ -39,7 +39,7 @@ let HomeRoutes = ({ childProps }) => (
         <AuthRoute path="/home/asset_category" component={AssetCategory} props={childProps} />
         <AuthRoute path="/home/asset_manage" component={AssetManage} props={childProps} />
         <AuthRoute path="/home/asset_owned" component={AssetOwned} props={childProps} />
-        <AuthRoute path="/home/asset_view" component={AssetPoolView} props={childProps} />
+        <AuthRoute path="/home/asset_pool" component={AssetPoolView} props={childProps} />
         <AuthRoute path="/home/asset_request" component={AssetRequest} props={childProps} />
         <AuthRoute path="/home/asset_transfer" component={AssetTransfer} props={childProps} />
         

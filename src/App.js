@@ -1,6 +1,8 @@
 import React from 'react';
 import Routes from './Routes';
 
+import { withCookies } from 'react-cookie';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -8,7 +10,7 @@ class App extends React.Component {
         this.state = {
             isAuthenticated: false,
             isAuthenticating: true,
-            accessToken: "0",
+            accessToken: "",
             levelOfAuthentication: 0
         };
     }
@@ -16,9 +18,12 @@ class App extends React.Component {
     componentDidMount() {
         // access token verification goes here:
         // ==== ==== ==== ====
-            if (this.state.accessToken !== null && this.state.accessToken !== "") {
-                this.setState({ isAuthenticated: true });
-            }
+        if (this.state.accessToken !== null && this.state.accessToken !== "") {
+            this.setState({ isAuthenticated: true });
+        }
+        if (this.props.cookies.get('auth')) {
+            this.setState({ isAuthenticated: true });
+        }
         // ==== ==== ==== ====
         this.setState({ isAuthenticating: false });
     }
@@ -45,10 +50,10 @@ class App extends React.Component {
         return (
             !this.state.isAuthenticating &&
             <div className="App">
-                <Routes childProps={childProps} />
+                <Routes childProps={childProps} cookies={this.props.cookies} />
             </div>
         )
     }
 }
 
-export default App;
+export default withCookies(App);
