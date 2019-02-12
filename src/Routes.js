@@ -6,13 +6,11 @@ import Home from './containers/Home';
 import Login from './containers/Login';
 import UnknownPage from './containers/UnknownPage';
 
-import { withCookies } from 'react-cookie';
-
 let Routes = ({ childProps }) => (
     <Switch>
         <Redirect exact path="/" to="/home" />
         <AuthRoute path="/home" component={Home} props={childProps} />
-        <UnauthRoute exact path="/login" component={Login} props={childProps} cookies={this.props.cookies} />
+        <UnauthRoute exact path="/login" component={Login} props={childProps} />
         
         {/* For unmatching URLs, following is the 404 page */}
         <Route component={UnknownPage} />

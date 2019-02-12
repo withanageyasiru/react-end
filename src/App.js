@@ -1,7 +1,6 @@
 import React from 'react';
 import Routes from './Routes';
 
-import { withCookies } from 'react-cookie';
 
 class App extends React.Component {
     constructor(props) {
@@ -21,9 +20,9 @@ class App extends React.Component {
         if (this.state.accessToken !== null && this.state.accessToken !== "") {
             this.setState({ isAuthenticated: true });
         }
-        if (this.props.cookies.get('auth')) {
-            this.setState({ isAuthenticated: true });
-        }
+        // if (this.props.cookies.get('auth')) {
+        //     this.setState({ isAuthenticated: true });
+        // }
         // ==== ==== ==== ====
         this.setState({ isAuthenticating: false });
     }
@@ -50,7 +49,7 @@ class App extends React.Component {
         return (
             !this.state.isAuthenticating &&
             <div className="App">
-                <Routes childProps={childProps} cookies={this.props.cookies} />
+                <Routes childProps={childProps} />
             </div>
         )
     }

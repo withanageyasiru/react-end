@@ -45,7 +45,6 @@ class Login extends React.Component {
                 this.props.setToken(res.data.access_token);
                 
                 console.log(this.props.accessToken);
-                this.props.cookies.set('auth', 'true', { path: '/' })
 
                 this.props.setAuth(true);
                 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
