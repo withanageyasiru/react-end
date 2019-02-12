@@ -29,7 +29,7 @@ export default class Edit extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://127.0.0.1:8000/api/request/edit/' + this.props.match.params.id)
+        axios.get('http://104.248.24.192:8080:8000/api/request/edit/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     arequest_type: response.data.type,
@@ -86,7 +86,7 @@ export default class Edit extends Component {
         //   = this.state;
         //calling api
 
-        axios.put('http://127.0.0.1:8000/api/request/update/' + this.props.match.params.id, {
+        axios.put('http://104.248.24.192:8080:8000/api/request/update/' + this.props.match.params.id, {
             arequest_type: this.state.arequest_type,
             arequest_from: this.state.arequest_from,
             arequest_to: this.state.arequest_to,

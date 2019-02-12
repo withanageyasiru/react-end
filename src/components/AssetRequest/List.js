@@ -18,7 +18,7 @@ export default class List extends Component {
 
   //calling API
   componentDidMount() {
-    axios.get('http://127.0.0.1:8000/api/requests')
+    axios.get('http://104.248.24.192:8080:8000/api/requests')
       .then(response => {
         this.setState({
           arequests: response.data
@@ -29,7 +29,7 @@ export default class List extends Component {
 
 
   onDelete(arequest_id) {
-    axios.delete('http://127.0.0.1:8000/api/request/delete/' + arequest_id)
+    axios.delete('http://104.248.24.192:8080:8000/api/request/delete/' + arequest_id)
       .then(response => {
         //removing the deleted items from the front end 
         var arequests = this.state.arequests;
@@ -49,7 +49,7 @@ export default class List extends Component {
   }
   /*
     onClick(){
-      axios.get('http://127.0.0.1:8000/api/export').
+      axios.get('http://104.248.24.192:8080:8000/api/export').
        then(function (res) {return Console.log('done');}); 
   
     
@@ -164,7 +164,7 @@ export default class List extends Component {
      <form  >
       
      <Link to={'/api/export'} >Edit</Link>
-         <button className="btn btn-warning" href="http://127.0.0.1:8000/api/export" >Export User Data</button>
+         <button className="btn btn-warning" href="http://104.248.24.192:8080:8000/api/export" >Export User Data</button>
      </form>
  </div>
 </div>

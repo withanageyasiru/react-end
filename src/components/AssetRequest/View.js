@@ -18,7 +18,7 @@ export default class View extends Component {
     }
     
     componentDidMount(){
-        axios.get('http://127.0.0.1:8000/api/requests')
+        axios.get('http://104.248.24.192:8080:8000/api/requests')
         .then(response=>{
           this.setState({
             arequests:response.data
@@ -28,7 +28,7 @@ export default class View extends Component {
  /*
 
 onDelete(arequest_id){
-    axios.delete('http://127.0.0.1:8000/api/request/delete/'+arequest_id).
+    axios.delete('http://104.248.24.192:8080:8000/api/request/delete/'+arequest_id).
     then(response=>{ 
         //removing the deleted items from the front end 
       var arequests=this.state.arequests;
@@ -51,7 +51,7 @@ onDelete(arequest_id){
 */
   async onApprove(arequest_id){
   await this.setState({ arequests_status: 1 })
-    axios.put('http://127.0.0.1:8000/api/request/approve/'+arequest_id,  {arequests_status:this.state.arequests_status} )
+    axios.put('http://104.248.24.192:8080:8000/api/request/approve/'+arequest_id,  {arequests_status:this.state.arequests_status} )
     
 // then(function (res) {return Console.log(res.data);}); 
 .then(res => {
@@ -67,7 +67,7 @@ this.setState({ alert_message: "error" });
     await this.setState({ arequests_status: 0 });
     console.log(this.state.arequests_status);
 
-    axios.put('http://127.0.0.1:8000/api/request/reject/'+arequest_id,  {arequests_status:this.state.arequests_status} )
+    axios.put('http://104.248.24.192:8080:8000/api/request/reject/'+arequest_id,  {arequests_status:this.state.arequests_status} )
     
     // then(function (res) {return Console.log(res.data);}); 
     .then(res => {
@@ -138,7 +138,7 @@ this.setState({ alert_message: "error" });
             <form  >
              
             <Link to={'/api/export'} >Edit</Link>
-                <button className="btn btn-warning" href="http://127.0.0.1:8000/api/export" >Export User Data</button>
+                <button className="btn btn-warning" href="http://104.248.24.192:8080:8000/api/export" >Export User Data</button>
             </form>
         </div>
     </div>

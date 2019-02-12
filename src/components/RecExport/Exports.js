@@ -104,7 +104,7 @@ export default class Export extends Component {
 
     //calling API
     componentDidMount() {
-        axios.get('http://127.0.0.1:8000/api/exports')
+        axios.get('http://104.248.24.192:8080:8000/api/exports')
             .then(response => {
                 this.setState({
                     assets: response.data

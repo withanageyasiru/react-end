@@ -83,7 +83,7 @@ export default class Store extends Component {
         //prepare data tobe sent to the api call
 
         //calling api
-        axios.post('http://127.0.0.1:8000/api/request/store', {
+        axios.post('http://104.248.24.192:8080:8000/api/request/store', {
             arequest_type: this.state.arequest_type,
             arequest_from: this.state.arequest_from,
             arequest_to: this.state.arequest_to,
@@ -113,7 +113,7 @@ export default class Store extends Component {
 
         // var data = 'laptop';
         //var data = this.arequest_type;
-        axios.get('http://127.0.0.1:8000/api/getFormData')
+        axios.get('http://104.248.24.192:8080:8000/api/getFormData')
 
             //then(function (res) {return Console.log(res.data);}); 
             .then(res => {
