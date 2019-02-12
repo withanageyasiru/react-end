@@ -37,13 +37,18 @@ class App extends React.Component {
         this.setState({ accessToken: value });
     }
 
+    setLevel = (value) => {
+        this.setState({ levelOfAuthentication: value });
+    }
+
     render() {
         const childProps = {
             isAuth: this.state.isAuthenticated,
             levelAuth: this.state.levelOfAuthentication,
             accessToken: this.state.accessToken,
             setAuth: this.setAuthentication,
-            setToken: this.setAccessToken
+            setToken: this.setAccessToken,
+            setLevel: this.setLevel
         };
 
         return (

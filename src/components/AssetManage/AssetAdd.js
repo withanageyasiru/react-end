@@ -17,7 +17,7 @@ import compo from "./addAssetx.js/addcomponents";
 import ups from "./addAssetx.js/addups";
 import oth from "./addAssetx.js/addothers";
 import AuthRoute from "../../components/AuthRoute";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class Tess extends Component {
   render() {
     return (
@@ -33,20 +33,28 @@ class Tess extends Component {
                       choose add type
                     </MDBDropdownToggle>
                     <MDBDropdownMenu right basic>
-                      <MDBDropdownItem href="/home/asset_manage/add/computers">
-                       
-                        Computers
+                      <MDBDropdownItem>
+                        <Link to="/home/asset_manage/add/computers">
+
+                          Computers
+                        </Link>
                       </MDBDropdownItem>
-                      <MDBDropdownItem href="/home/asset_manage/add/components">
-                        Components
+                      <MDBDropdownItem>
+                        <Link to="/home/asset_manage/add/components">
+                          Components
+                        </Link>
                       </MDBDropdownItem>
-                      <MDBDropdownItem href="/home/asset_manage/add/ups">
-                        Ups
+                      <MDBDropdownItem>
+                        <Link to="/home/asset_manage/add/ups">
+                          Ups
+                        </Link>
                       </MDBDropdownItem>
-                      <MDBDropdownItem href="/home/asset_manage/add/others">
-                        Others
+                      <MDBDropdownItem>
+                        <Link to="/home/asset_manage/add/others">
+                          Others
+                        </Link>
                       </MDBDropdownItem>
-                      
+
                     </MDBDropdownMenu>
                   </MDBDropdown>
                   {/* <Route  path="/home/asset_manage/add/computers" component={com} />  */}
@@ -61,7 +69,7 @@ class Tess extends Component {
                       component={compo}
                       props={this.props}
                     />
-                     <AuthRoute
+                    <AuthRoute
                       path="/home/asset_manage/add/ups"
                       component={ups}
                       props={this.props}

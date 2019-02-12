@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch } from 'react-router-dom';
+import { Switch, Link } from 'react-router-dom';
 import { MDBContainer, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import AuthRoute from '../AuthRoute';
 // import Poool from "../../components/assetsComponents/D2";
@@ -21,25 +21,37 @@ class PoolView extends React.Component {
         <MDBContainer>
           <MDBDropdown>
             <MDBDropdownToggle caret color="primary">
-              MDBDropdown
+              Select Item...
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
-              <MDBDropdownItem href="/home/asset_pool/computers">Computers</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/desktops" >Desktops</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/laptops" >Laptops</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/ups" >Ups</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/compo" >Components</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/oth" >Others</MDBDropdownItem>
+              <MDBDropdownItem>
+                <Link to="/home/asset_pool/computers">Computers</Link>
+              </MDBDropdownItem>
+              <MDBDropdownItem>
+                <Link to="/home/asset_pool/desktops" >Desktops</Link>
+              </MDBDropdownItem>
+              <MDBDropdownItem>
+                <Link to="/home/asset_pool/laptops">Laptops</Link>
+              </MDBDropdownItem>
+              <MDBDropdownItem>
+                <Link to="/home/asset_pool/ups">Ups</Link>
+              </MDBDropdownItem>
+              <MDBDropdownItem>
+                <Link to="/home/asset_pool/compo">Components</Link>
+              </MDBDropdownItem>
+              <MDBDropdownItem>
+                <Link to="/home/asset_pool/oth">Others</Link>
+              </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
           <Switch>
             {/* <Route path="/computers" component={Publi}/> */}
-            <AuthRoute path="/home/asset_pool/computers" component={Publi} props={this.props}/>
+            <AuthRoute path="/home/asset_pool/computers" component={Publi} props={this.props} />
             <AuthRoute exact path="/home/asset_pool/desktops" component={Deskt} props={this.props} />
             <AuthRoute exact path="/home/asset_pool/laptops" component={Lapt} props={this.props} />
             <AuthRoute exact path="/home/asset_pool/ups" component={Upst} props={this.props} />
             <AuthRoute exact path="/home/asset_pool/compo" component={Com} props={this.props} />
-            <AuthRoute exact path="/home/asset_pool/oth" component={Other} props={this.props} /> 
+            <AuthRoute exact path="/home/asset_pool/oth" component={Other} props={this.props} />
           </Switch>
         </MDBContainer>
       </div>
