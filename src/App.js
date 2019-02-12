@@ -55,4 +55,4 @@ class App extends React.Component {
     }
 }
 
-export default withCookies(App);
+export default App;
