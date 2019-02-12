@@ -30,15 +30,15 @@ class Tess extends Component {
 
      handleSubmit = (event) =>
      {
-        Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-        Axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIwMGFkNDk2MTAyZjc5OWQxZDM0ZjNiYTJlOGUzZTE1NTFkOWVkM2Q2YmZjOGFkYTZjODEzZjdjMDcwYWE2OGFlOWRhM2RlMGQ1MGJmMmU2In0.eyJhdWQiOiIxIiwianRpIjoiMjAwYWQ0OTYxMDJmNzk5ZDFkMzRmM2JhMmU4ZTNlMTU1MWQ5ZWQzZDZiZmM4YWRhNmM4MTNmN2MwNzBhYTY4YWU5ZGEzZGUwZDUwYmYyZTYiLCJpYXQiOjE1NDk3OTQzMzIsIm5iZiI6MTU0OTc5NDMzMiwiZXhwIjoxNTgxMzMwMzMyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.bLnjldq5f-CTSiVdfK2qVbwIQOQyfR8h3LsugN58UlPwJxr1nS2nSlqrWt-fbpQMybMulosBcHXacefErcQJt1jthbCWAQT46PYtMAN0jpe7jCLv84ZD69V-IwLaUplqdOxd_pySFRlC6vXCNLUCilcxjGcWeiXTydS2O_Dcj2SK9c85o3lO3VQtzfk1r9nOSYePRsiKMVjFb15CwXWC9SpmHA4i3hQgQ1u2zgnE3335Xqr6v-nxLmsOPQG2ksYbscuAtS-p4vn0Xcwomi-UoFGPmsx-p9Cb3rohuks2WsGvgVjMvA15WeSLNQYINmwBrvvBhcWVpgMNqlN9AntYXA9sgKCcW8lSCz8aMSExoA2LU7XDAWvileO3Uor6Fv-KIy_4CYO7szplADNHx6HWUNeM4swkRcmuNwvLb9DxYRGC39xowcIiJ9o_7ZHTPsJCIwziELbXpYlRZ-ZiDdF-kx99iWgBN5USAINiag1Mh8bkf3dbhQgppYG2sK2DM-afmnQ3oCKmeQoqkTqoT1vqxFwva3-N8V2JBu5yjkSdXnM5k1Czry-8N5Gs_QtQCEGhRlw-JgAlhbUgZ_0fUXLJyRQiEpGruw0Dk1xigb60GXG5tjj81s0kxWg-p1iW2JFf1_3wpNaHbKyB_TQ6pJvkNUy12ENhVam5av75Fvn1WDw';
+        // Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        // Axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIwMGFkNDk2MTAyZjc5OWQxZDM0ZjNiYTJlOGUzZTE1NTFkOWVkM2Q2YmZjOGFkYTZjODEzZjdjMDcwYWE2OGFlOWRhM2RlMGQ1MGJmMmU2In0.eyJhdWQiOiIxIiwianRpIjoiMjAwYWQ0OTYxMDJmNzk5ZDFkMzRmM2JhMmU4ZTNlMTU1MWQ5ZWQzZDZiZmM4YWRhNmM4MTNmN2MwNzBhYTY4YWU5ZGEzZGUwZDUwYmYyZTYiLCJpYXQiOjE1NDk3OTQzMzIsIm5iZiI6MTU0OTc5NDMzMiwiZXhwIjoxNTgxMzMwMzMyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.bLnjldq5f-CTSiVdfK2qVbwIQOQyfR8h3LsugN58UlPwJxr1nS2nSlqrWt-fbpQMybMulosBcHXacefErcQJt1jthbCWAQT46PYtMAN0jpe7jCLv84ZD69V-IwLaUplqdOxd_pySFRlC6vXCNLUCilcxjGcWeiXTydS2O_Dcj2SK9c85o3lO3VQtzfk1r9nOSYePRsiKMVjFb15CwXWC9SpmHA4i3hQgQ1u2zgnE3335Xqr6v-nxLmsOPQG2ksYbscuAtS-p4vn0Xcwomi-UoFGPmsx-p9Cb3rohuks2WsGvgVjMvA15WeSLNQYINmwBrvvBhcWVpgMNqlN9AntYXA9sgKCcW8lSCz8aMSExoA2LU7XDAWvileO3Uor6Fv-KIy_4CYO7szplADNHx6HWUNeM4swkRcmuNwvLb9DxYRGC39xowcIiJ9o_7ZHTPsJCIwziELbXpYlRZ-ZiDdF-kx99iWgBN5USAINiag1Mh8bkf3dbhQgppYG2sK2DM-afmnQ3oCKmeQoqkTqoT1vqxFwva3-N8V2JBu5yjkSdXnM5k1Czry-8N5Gs_QtQCEGhRlw-JgAlhbUgZ_0fUXLJyRQiEpGruw0Dk1xigb60GXG5tjj81s0kxWg-p1iW2JFf1_3wpNaHbKyB_TQ6pJvkNUy12ENhVam5av75Fvn1WDw';
 
         event.preventDefault()
         const data = this.state
        
         console.log(data)
 
-        let url = "http://127.0.0.1:8000/api/auth/updateAssets";
+        let url = "http://104.248.24.192:8080/auth/updateAssets";
         Axios.post(url, data)
             .then((res) => {
                 

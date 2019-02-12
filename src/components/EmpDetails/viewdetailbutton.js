@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
-import Axios from 'axios';
+
 class ModalPage extends Component {
     constructor(props)   
    {
@@ -29,25 +29,7 @@ toggle = nr => () => {
 // {
 //     console.log(this.arri);
 // }
-PutReq=(e)=>{
-  //this.props.val.id
-  //let url = "http://127.0.0.1:8000/api/auth/astreq";
-  e.preventDefault();
-  Axios.post("http://104.248.24.192:8080/api/auth/astreq", {
-        id : this.props.val.id,
-        type : 1,
-        descript : "my machine is less powerfull "
-       })
-      .then((res) => {
-          
-          console.log("RESPONSE RECEIVED: ");
-      })
-      .catch((err) => {
-          console.log("AXIOS ERROR: ", err);
-      })
- 
- 
- }
+
 
 
 render() {
@@ -63,9 +45,9 @@ render() {
             return(
                 <MDBListGroup style={{ width: "22rem" }}key={far.id}>
                 <MDBListGroupItem>{far.id}</MDBListGroupItem>
-                <MDBListGroupItem>{far.capacity}</MDBListGroupItem>
-                <MDBListGroupItem>{far.brandName}</MDBListGroupItem>
-                 <MDBListGroupItem>{far.price}</MDBListGroupItem>
+                <MDBListGroupItem>{far.firstName}</MDBListGroupItem>
+                <MDBListGroupItem>{far.lastName}</MDBListGroupItem>
+                 <MDBListGroupItem>{far.status}</MDBListGroupItem>
                 <MDBListGroupItem>{"you can choose this asssets ...."}</MDBListGroupItem> 
               </MDBListGroup>
          
@@ -75,7 +57,7 @@ render() {
         </MDBModalBody>
         <MDBModalFooter>
           <MDBBtn color="secondary" onClick={this.toggle(8)}>Close</MDBBtn>
-          <MDBBtn color="primary" onClick={this.PutReq=this.PutReq.bind(this)}>Request This</MDBBtn>
+          <MDBBtn color="primary">Request This</MDBBtn>
         </MDBModalFooter>
       </MDBModal>
      
