@@ -43,7 +43,10 @@ class Login extends React.Component {
         Axios.post(url, postData, axiosConfig)
             .then((res) => {
                 this.props.setToken(res.data.access_token);
-                // console.log(this.props.accessToken);
+                
+                console.log(this.props.accessToken);
+                this.props.cookies.set('auth', 'true', { path: '/' })
+
                 this.props.setAuth(true);
                 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
                 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.access_token;
@@ -73,14 +76,14 @@ class Login extends React.Component {
         return (
             <div className="Login">
                 <MDBView>
-                    <img src="https://syscoem.com.mx/pdv/assets/images/1374-2000x1333.jpg" class="img-fluid" alt="background" />
+                    <img src="https://syscoem.com.mx/pdv/assets/images/1374-2000x1333.jpg" className="img-fluid" alt="background" />
                     <MDBMask className="d-flex justify-content-center align-middle" overlay="teal-light">
                         <MDBContainer>
                             <MDBRow>
                                 <MDBCol size="12" className="py-5 my-4"></MDBCol>
                             </MDBRow>
                             <MDBRow>
-                                <MDBCol md="6" className="text-align-center">
+                                <MDBCol md="6" className="n-text-center">
                                     <h1 className="display-1">
                                         <strong className="teal-text">Sim</strong><span className="">Centric</span>
                                     </h1>
