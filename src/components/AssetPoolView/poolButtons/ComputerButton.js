@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
+import { MDBContainer,MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn,MDBInput, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
 import Axios from 'axios';
 
 class ModalPage extends Component {
@@ -68,6 +68,21 @@ render() {
                 <MDBListGroupItem>{far.price}</MDBListGroupItem>
                  <MDBListGroupItem>{far.warrantyStatus}</MDBListGroupItem>
                 <MDBListGroupItem>{"you can choose this asssets ...."}</MDBListGroupItem> 
+                <MDBInput label="From" />
+                <MDBInput label="To" />
+                <MDBDropdown>
+      <MDBDropdownToggle caret color="primary">
+       Reosan..
+      </MDBDropdownToggle>
+      <MDBDropdownMenu basic>
+        <MDBDropdownItem>Action</MDBDropdownItem>
+        <MDBDropdownItem>Another Action</MDBDropdownItem>
+        <MDBDropdownItem>Something else here</MDBDropdownItem>
+        <MDBDropdownItem divider />
+        <MDBDropdownItem>Separated link</MDBDropdownItem>
+      </MDBDropdownMenu>
+      <MDBInput type="textarea" label="Comments.." rows="5" />
+    </MDBDropdown>
               </MDBListGroup>
          
             )
