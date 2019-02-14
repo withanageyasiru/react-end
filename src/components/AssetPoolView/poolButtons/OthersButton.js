@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
+import { MDBContainer,MDBInput, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
 import Axios from 'axios';
 class ModalPage extends Component {
     constructor(props)   
@@ -54,21 +54,74 @@ render() {
   return (
       
     <MDBContainer>
-      <MDBBtn color="info" onClick={this.toggle(8)}>More Details</MDBBtn>
+    <MDBBtn color="info" onClick={this.toggle(8)}>More Details</MDBBtn>
       <MDBModal isOpen={this.state.modal8} toggle={this.toggle(8)} fullHeight position="right">
         <MDBModalHeader toggle={this.toggle(8)}>More Details...</MDBModalHeader>
         <MDBModalBody>
         {
         this.state.arri.map(far =>{
             return(
-                <MDBListGroup style={{ width: "22rem" }}key={far.id}>
+              <div>
+              <MDBListGroup style={{ width: "22rem" }}key={far.id}>
                 <MDBListGroupItem>{far.id}</MDBListGroupItem>
                 <MDBListGroupItem>{far.description}</MDBListGroupItem>
                 <MDBListGroupItem>{far.price}</MDBListGroupItem>
                  <MDBListGroupItem>{far.status}</MDBListGroupItem>
                 <MDBListGroupItem>{"you can choose this asssets ...."}</MDBListGroupItem> 
               </MDBListGroup>
-         
+               
+               <form >
+
+
+ <div className="form-group">
+                        {/* <label className="control-label col-sm-2" htmlFor="id">Asset Id</label> */}
+                        <div className="col-sm-10">
+                        <MDBInput  type="number" label="Asset Id"  name='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+     </div>
+</div>                  
+
+
+
+<div className="form-group">
+    {/* <label className="control-label col-sm-2" htmlFor="from">From:</label> */}
+    <div className="col-sm-10">
+    <MDBInput  type="date" label="From"  name='from'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+              </div>
+</div>
+
+<div className="form-group">
+    
+    <div className="col-sm-10">
+    <MDBInput  type="date" label="TO"  name='to'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+              </div>
+</div>
+
+<div className="form-group">
+    
+    <div className="col-sm-10">
+        <select className="form-control" id="reason" type="text" value={this.state.reason} name='reason' onChange={this.handleChange=this.handleChange.bind(this)}>
+
+            <option disabled hidden value=''></option>
+            <option>For Extra Usage</option>
+            <option>For On going Project</option>
+            <option>For Take Home</option>
+            <option>For Getting Out</option>
+        </select>
+    </div>
+
+    <div className="form-group">
+       
+        <div className="col-sm-10">
+            {/* <input type="text" className="form-control" id="description" name="description" placeholder="Any more comments" value={this.state.arequest_description}
+                onChange={this.onChangeDescription}></input> */}
+        <MDBInput  type="text" label="comments"  name='description'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+            
+        </div>
+    </div>
+</div>
+
+</form>
+</div>
             )
         })
           } 
