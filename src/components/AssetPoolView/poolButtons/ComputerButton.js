@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { MDBContainer,MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn,MDBInput, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
 import Axios from 'axios';
+import Msgs from '../../EmpManage/sucmsgpagee';
+import Msgs2 from '../../EmpManage/failmsgpage';
 
 class ModalPage extends Component {
     constructor(props)   
@@ -16,6 +18,7 @@ class ModalPage extends Component {
         to:"",
         reason:"",
         description:"",
+        msg:" ",
       }
       this.toggle = this.toggle.bind(this);
     //    console.log(this.props.);
@@ -48,10 +51,15 @@ PutReq=(e)=>{
     description: this.state.description
       })
      .then((res) => {
-         
+        this.setState({
+            msg:"suc"
+          })
          console.log("RESPONSE RECEIVED: ");
      })
      .catch((err) => {
+        this.setState({
+            msg:"fail"
+          })
          console.log("AXIOS ERROR: ", err);
      })
 
@@ -80,8 +88,14 @@ handleChange = (event) =>
 
 render() {
   return (
-      
+       <div>
+           <hr /> 
+           {this.state.msg=="suc"?<Msgs />:null}
+           {this.state.msg=="fail"?<Msgs2 />:null}
     <MDBContainer>
+
+             
+
       <MDBBtn color="info" onClick={this.toggle(8)}>More Details</MDBBtn>
       <MDBModal isOpen={this.state.modal8} toggle={this.toggle(8)} fullHeight position="right">
         <MDBModalHeader toggle={this.toggle(8)}>More Details...</MDBModalHeader>
@@ -97,7 +111,7 @@ render() {
                  <MDBListGroupItem>{far.warrantyStatus}</MDBListGroupItem>
                 <MDBListGroupItem>{"you can choose this asssets ...."}</MDBListGroupItem> 
                </MDBListGroup>
-               
+
                <form >
 
 
@@ -161,6 +175,7 @@ render() {
       </MDBModal>
      
     </MDBContainer>
+    </div>
     );
   }
 }

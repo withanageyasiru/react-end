@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { MDBContainer,MDBInput, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
 import Axios from 'axios';
+import Msgs from '../../EmpManage/sucmsgpagee';
+import Msgs2 from '../../EmpManage/failmsgpage';
+
 class ModalPage extends Component {
     constructor(props)   
    {
@@ -9,7 +12,13 @@ class ModalPage extends Component {
       this.state = {
         modal6: false,
         modal7: false,
-        arri:[""]
+        arri:[""],
+        msg:" ",
+        from:"",
+        id:0,
+        to:"",
+        reason:"",
+        description:"",
       }
       this.toggle = this.toggle.bind(this);
     //    console.log(this.props.);
@@ -34,26 +43,56 @@ PutReq=(e)=>{
   //let url = "http://127.0.0.1:8000/api/auth/astreq";
   e.preventDefault();
   Axios.post("http://104.248.24.192:8080/api/auth/astreq", {
-        id : this.props.val.id,
-        type : 1,
-        descript : "my machine is less powerfull "
+    id:this.state.id,
+    from: this.state.from,
+    to: this.state.to,
+    reason: this.state.reason,
+    description: this.state.description
        })
       .then((res) => {
-          
-          console.log("RESPONSE RECEIVED: ");
-      })
-      .catch((err) => {
-          console.log("AXIOS ERROR: ", err);
-      })
+        this.setState({
+          msg:"suc"
+        })
+       console.log("RESPONSE RECEIVED: ");
+   })
+   .catch((err) => {
+      this.setState({
+          msg:"fail"
+        })
+       console.log("AXIOS ERROR: ", err);
+   })
  
  
  }
 
 
+ handleChange = (event) =>
+     {
+        event.preventDefault()
+        console.log(event.target.name)
+        console.log(event.target.value)
+        this.setState({
+
+            
+           
+             [event.target.name]:event.target.value,
+             [event.target.name]:event.target.value,
+             [event.target.name]:event.target.value,
+             [event.target.name]:event.target.value,
+             [event.target.name]:event.target.value,
+            
+             
+            
+        })
+     }
+
 render() {
   return (
       
     <MDBContainer>
+    <hr /> 
+           {this.state.msg=="suc"?<Msgs />:null}
+           {this.state.msg=="fail"?<Msgs2 />:null}
     <MDBBtn color="info" onClick={this.toggle(8)}>More Details</MDBBtn>
       <MDBModal isOpen={this.state.modal8} toggle={this.toggle(8)} fullHeight position="right">
         <MDBModalHeader toggle={this.toggle(8)}>More Details...</MDBModalHeader>
