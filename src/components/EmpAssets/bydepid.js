@@ -73,7 +73,7 @@ class Assetsadd extends Component {
       <MDBRow>
         <MDBCol md="6">
           <form>
-            <p className="h5 text-center mb-4">Write to us</p>
+            <p className="h5 text-center mb-4">Search by Department ID..</p>
             <div className="grey-text">
             
             <MDBInput  type="number" label="Department Id"  name='department_id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />

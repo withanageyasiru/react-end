@@ -92,7 +92,7 @@ class Tess extends Component {
          
             <MDBContainer>
             <hr /> 
-            {/* <Msgs new={this.state.msg} />   */}
+           
             {this.state.msg=="suc"?<Msgs />:null}
             {this.state.msg=="fail"?<Msgs2 />:null}
          

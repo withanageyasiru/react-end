@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput } from 'mdbreact';
 import Axios from 'axios';
+import Msgs from './sucmsgpagee';
+import Msgs2 from './failmsgpage';
 class Tess extends Component {
     constructor(props)   
     {
@@ -15,7 +17,7 @@ class Tess extends Component {
           email:"cccc",
           password:"",
           departmentName:0,
-             
+          msg:" ", 
             
  
           }
@@ -34,13 +36,19 @@ class Tess extends Component {
 
         let url = "http://104.248.24.192:8080/api/auth/updateUser";
         Axios.post(url, data)
-            .then((res) => {
-                
-                console.log("RESPONSE RECEIVED: ");
+        .then((res) => {
+            this.setState({
+              msg:"suc"
             })
-            .catch((err) => {
-                console.log("AXIOS ERROR: ", err);
-            })
+            console.log("RESPONSE RECEIVED: ");
+            // ${{<Msgs />}}
+        })
+        .catch((err) => {
+          this.setState({
+            msg:"fail"
+          })
+            console.log("there is aa ERROR: ", err);
+        })
 
 
      }
@@ -73,7 +81,10 @@ class Tess extends Component {
         
         return (  
             <MDBContainer>
-                
+            <hr /> 
+           
+           {this.state.msg=="suc"?<Msgs />:null}
+           {this.state.msg=="fail"?<Msgs2 />:null}
      
           <form>
           <MDBRow>
