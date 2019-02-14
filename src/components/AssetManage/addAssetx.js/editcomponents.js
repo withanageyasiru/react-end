@@ -102,6 +102,7 @@ class Tess extends Component {
            </MDBCol>
            <MDBCol md="6" className="mb-3">
            <div className="grey-text">
+
            <MDBInput  type="date" label="Expire date"  name='expireDate'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} /> 
            <MDBInput  type="text" label="Component type"  name='componentType'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
            {/* <MDBInput  type="number" label="VGA"  name='vga'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
@@ -117,6 +118,7 @@ class Tess extends Component {
            </div>
            
           
+
            
          
        

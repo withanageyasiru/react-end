@@ -2,18 +2,18 @@ import React from 'react';
 import { MDBNavItem, MDBNavLink, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from 'mdbreact';
 
 class MenuDepartments extends React.Component {
-    all = (this.props.levelAuth === 0);
-    admin = (this.props.levelAuth === 1);
-    depth = (this.props.levelAuth === 2);
-    finan = (this.props.levelAuth === 3);
-    emplo = (this.props.levelAuth === 4);
+    all = (this.props.levelAuth === 9);
+    admin = (this.props.levelAuth === 3);
+    depth = (this.props.levelAuth === 1);
+    finan = (this.props.levelAuth === 2);
+    emplo = (this.props.levelAuth === 0);
 
     render() {
         return (
             <div className="MenuDepartments">
                 <MDBNavItem
                     className="px-lg-1"
-                    hidden={!(this.admin || this.all)}
+                    hidden={!(false)}
                 >
                     <MDBDropdown>
                         <MDBDropdownToggle nav caret>

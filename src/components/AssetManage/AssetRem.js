@@ -78,6 +78,7 @@ class Tess extends Component {
             <div className="grey-text">
               <MDBInput  type="number" label="Asset Code"  name='code'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
               
+
              <MDBBtn color="primary" onClick={this.toggle(14)}>Delete</MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>Confirmation...</MDBModalHeader>
@@ -89,6 +90,9 @@ class Tess extends Component {
             <MDBBtn color="primary" onClick={this.handleSubmit=this.handleSubmit.bind(this)}>Yes</MDBBtn>
           </MDBModalFooter>
         </MDBModal>
+
+              
+
               
              
              

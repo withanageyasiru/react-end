@@ -1,7 +1,9 @@
+
 // import React from "react";
 // import { Switch, Link } from 'react-router-dom';
 // import { MDBContainer, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 // import AuthRoute from '../AuthRoute';
+
 
 // import Publi from "./poolTables/Computerst";
 // import Deskt from "./poolTables/Desktopt";
@@ -9,6 +11,7 @@
 // import Upst from "./poolTables/Upst";
 // import Com from "./poolTables/Componentst";
 // import Other from "./poolTables/Otherst";
+
 
 
 // class PoolView extends React.Component {

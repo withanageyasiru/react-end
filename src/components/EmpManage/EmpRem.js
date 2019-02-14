@@ -82,7 +82,7 @@ this.setState({
              
               
               
-              <MDBBtn outline color="secondary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
+              <MDBBtn outline color="primary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
                 Delete <MDBIcon far icon="paper-plane" className="ml-1" />
               </MDBBtn>
               

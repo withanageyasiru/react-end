@@ -1,8 +1,8 @@
 // import packages
 import React, { Component } from "react";
+import axios from "axios";
 import socketIOClient from "socket.io-client";
 //import Message from "./components/Message";
-import axios from "axios";
 import PopUp from "./PopUp";
 
 class NotiMsg extends Component {
@@ -167,7 +167,7 @@ class NotiMsg extends Component {
                   <td className = "text-center">{item.asset.type}</td>
                   <td className = "text-center">{item.asset.brandName}</td>
                   <td>
-                    <PopUp value={item} />
+                    <PopUp value={item} status={this.state.User_status} />
                   </td>
                 </tr>
               );

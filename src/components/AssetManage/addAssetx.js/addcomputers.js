@@ -112,6 +112,7 @@ class Tess extends Component {
               
 
 
+
               <MDBBtn outline color="secondary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
                 Send <MDBIcon far icon="paper-plane" className="ml-1" />
               </MDBBtn>
@@ -120,6 +121,7 @@ class Tess extends Component {
              
               
             
+
           
             </MDBCol>
             {/* <MDBCol md="6" className="mb-3">

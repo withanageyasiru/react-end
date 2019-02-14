@@ -20,11 +20,11 @@ class DeptManage extends React.Component {
                     is succesfully implemented to the system */}
                 <MDBRow>
                     <MDBCol>
-                        <MDBPagination className="d-flex d-sm-inline-flex justify-content-center mb-5 font-weight-bold">
+                        <MDBPagination className="d-flex d-sm-inline-flex justify-content-center mb-1 font-weight-bold">
                             <MDBPageItem>
                                 <MDBNavLink
                                     className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
-                                    to="/home/dept_manage/"
+                                    to="/home/dept_manage/add"
                                 >
                                     Create
                                 </MDBNavLink>
@@ -48,10 +48,10 @@ class DeptManage extends React.Component {
                         </MDBPagination>
                     </MDBCol>
                 </MDBRow>
-
+                <hr />
                 <div className="DeptManageContent">
                     <Switch>
-                        <AuthRoute exact path="/home/dept_manage/" component={DeptAdd} props={this.props} />
+                        <AuthRoute path="/home/dept_manage/add" component={DeptAdd} props={this.props} />
                         <AuthRoute path="/home/dept_manage/edit" component={DeptEdit} props={this.props} />
                         <AuthRoute path="/home/dept_manage/remove" component={DeptRem} props={this.props} />
                     </Switch>
