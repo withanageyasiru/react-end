@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Workbook from 'react-excel-workbook';
 
-import ReactExport from 'react-data-export';
-// import Checkbox from "./Checkbox";
-const ExcelFile = ReactExport.ExcelFile;
-const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 
 const OPTIONS = ["id" , "type" , "brandName" ];
 
@@ -14,6 +10,7 @@ export default class Export extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            exportEnable:false,
             assets: [],
             selections : [],
             checkboxes: OPTIONS.reduce(
@@ -37,6 +34,7 @@ export default class Export extends Component {
                 this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
                 this.handleFormSubmit = this.handleFormSubmit.bind(this);
                 this.export = this.export.bind(this);
+                this.renderExport = this.renderExport.bind(this);
 
     }
 
@@ -54,7 +52,12 @@ export default class Export extends Component {
   
       selectAll() { this.selectAllCheckboxes(true); }
   
-      deselectAll() { this.selectAllCheckboxes(false); }
+      deselectAll() {
+           this.selectAllCheckboxes(false); 
+           this.setState({
+            exportEnable : false
+          });
+        }
   
       async handleCheckboxChange(changeEvent) {
           const { name } = changeEvent.target;
@@ -66,6 +69,9 @@ export default class Export extends Component {
               }
               
           }));
+          this.setState({
+              exportEnable : false
+          });
           
       }
   
@@ -74,7 +80,6 @@ export default class Export extends Component {
             var temArr=[];
   
           formSubmitEvent.preventDefault();
-          //await console.log(this.state.checkboxes);
           await Object.keys(this.state.checkboxes)
               .filter(checkbox => this.state.checkboxes[checkbox])
               .forEach(checkbox => {  
@@ -82,9 +87,20 @@ export default class Export extends Component {
                   console.log(checkbox, this.state.checkboxes);
               });
             this.setState({
-                selections:temArr
+                selections:temArr,
+                exportEnable:true
             })
+            if (temArr === undefined || temArr.length == 0) {
+                this.setState({
+                    exportEnable : false
+                });
+            }
+            else{
+                this.export();
+            }
+            
             console.log(this.state.selections);
+            console.log("test",this.state.checkboxes.id);
       }
   
       async   export() {
@@ -102,27 +118,24 @@ export default class Export extends Component {
                     });
                     console.log(this.state.assets);
                 });
+        
 
-                //console.log(this.state.assets);
-  
-          return (<Workbook filename="example.xlsx" element={<button className="btn btn-lg btn-primary">Try me!</button>}>
-              <Workbook.Sheet data={this.state.assets} name="Sheet A">
-                  {/* {
-                      
-                      this.state.selections.forEach(function(element) {
-                        return(
-                        <Workbook.Column label={element} value= {element}/>
-                        );
-                      })
-                          
-                  } */}
-                  <Workbook.Column label="Asset Id" value="id" />
-                  <Workbook.Column label="Type" value="type" />
-  
-  
-              </Workbook.Sheet>
-  
-          </Workbook>);
+      }
+
+      renderExport(){
+        if(this.state.exportEnable===true){
+          return(
+            <Workbook filename="example.xlsx" element={<button className="btn btn-lg btn-primary">Exporty</button>}>
+                <Workbook.Sheet data={this.state.assets} name="Sheet A">
+
+                    { this.state.checkboxes.id===true ? <Workbook.Column label="Asset Id" value="id" /> : <></> }
+                    { this.state.checkboxes.type===true ? <Workbook.Column label="Asset Id" value="type" /> : <></> }
+                    { this.state.checkboxes.brandName===true ? <Workbook.Column label="Asset Id" value="brandName" /> : <></> }
+                
+                </Workbook.Sheet>
+            </Workbook>
+          );
+        }
       }
   
 
@@ -136,6 +149,7 @@ export default class Export extends Component {
 
 
     render() {
+        
         return (
             <div>
                  <hr />
@@ -183,15 +197,7 @@ export default class Export extends Component {
                                         Deselect All
                                    </button>
                                     <button type="submit" className="btn btn-primary">
-                                        Save
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        className="btn btn-outline-primary mr-2"
-                                        onClick={this.export}
-                                    >
-                                        done
+                                        CONFIRM
                                     </button>
                                 </div>
                             </form>
@@ -203,33 +209,9 @@ export default class Export extends Component {
 
 
 
-                {/*just use this code below,, can just import all the fields in the asset table.. above commented code is for selecting necessary fields to export but its not working */}
+                {/*just use this code below,, can just import all the fields in the asset table..  */}
                 <div className="row text-center" style={{ marginTop: '100px' }}>
-                    <Workbook filename="example.xlsx" element={<button className="btn btn-lg btn-primary">Export</button>}>
-                        <Workbook.Sheet data={this.state.assets} name="Sheet A">
-                            {/* <Workbook.Column label="Asset Id" value="id" />
-                            <Workbook.Column label="Type" value="type" /> */}
-                             {
-                      
-                                    this.state.selections.forEach(function(element) {
-                                        return(
-                                        <Workbook.Column label={element} value= {element}/>
-                                        );
-                                    })
-                                        
-                                }
-                            
-                        </Workbook.Sheet>
-
-                               
-                        <ExcelFile element={<button>Download Data With Styles</button>}>
-                            <ExcelSheet dataSet={this.state.assets} name="Organization"/>
-                        </ExcelFile>
-                    
-
-                    </Workbook>
-
-
+                    {this.renderExport()}
                 </div>
             </div>
 
