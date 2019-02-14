@@ -8,6 +8,7 @@
     "mdbreact": "^4.9.0",
     "react": "^16.7.0",
     "react-cookie": "^3.0.8",
+    "react-data-export": "^0.5.0",
     "react-dom": "^16.7.0",
     "react-excel-workbook": "0.0.4",
     "react-export-excel": "^0.5.3",
