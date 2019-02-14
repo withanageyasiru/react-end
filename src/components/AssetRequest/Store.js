@@ -87,7 +87,7 @@ export default class Store extends Component {
         
         //calling api
         axios.post('http://104.248.24.192:8080/api/auth/astreq', {
-            id: this.state.arequest_type,
+            id: this.state.arequest_id,
             from: this.state.arequest_from,
             to: this.state.arequest_to,
             reason: this.state.arequest_reason,
