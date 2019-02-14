@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 import Axios from 'axios';
+
 class Tess extends Component {
     constructor(props)   
     {
@@ -10,7 +11,7 @@ class Tess extends Component {
            
           
             code:0,
-             
+            modal14: false,
              
             
  
@@ -18,27 +19,35 @@ class Tess extends Component {
      
      }
 
+     toggle = nr => (event) => {
+        let modalNumber = 'modal' + nr
+        this.setState({
+          [modalNumber]: !this.state[modalNumber]
+        });
+       
+      }
+
      handleSubmit = (event) =>
      {
-        // Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-        // Axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjhjNTk5YTRkNDMwMGEwYTczN2RjMzMwZGRkMDMyOTc2NGVkYmE1N2M4N2E3MzIwYzYzZmUzODhlNjQ0MTMzM2NmYmU2ZjdiNGI1MDE1MGFlIn0.eyJhdWQiOiIxIiwianRpIjoiOGM1OTlhNGQ0MzAwYTBhNzM3ZGMzMzBkZGQwMzI5NzY0ZWRiYTU3Yzg3YTczMjBjNjNmZTM4OGU2NDQxMzMzY2ZiZTZmN2I0YjUwMTUwYWUiLCJpYXQiOjE1NDk4MTA0MTUsIm5iZiI6MTU0OTgxMDQxNSwiZXhwIjoxNTgxMzQ2NDE1LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.ZvY_HdEGJEus8blsHciIWMnO8gEFhYzz2bbZVxr5KTcgcVBXF-Gq0K5AH_pz-OFA9VeCeXP-Xo8R3NRpJOAItunRzWOerezIlM3IewEfcl6kSgo75dS8MO3VMaO-eM2ANnO90iBTTpC6NXjMn7MfVUN-enes_bPD_spzo1LLBOvcq9CXeFo8u2lmMVs7UsnGGZ6CgXYTCGe4MUbkpJ5eztxyEHm-haOGIcbuxzSu7_PsBs-FRRlkQusit_vTzjR3O71rqDXyjQtK2ZAvDwA43Dg2-0X2QAxM5QDgJ4GeZUgTHiUNIeRp0FcHuKtnJ9PLnzzk39_xaVPXnk-ExvyTqBzWmY76jzGfWnntClSR2d4R-dyhMbrDX55dPS4CzG3c1uZnOLbDoMTfCFDLJ7iT5RQZcD9pKTMLVO3JrU-C9iZ-M7-lk_mCf9HyN0IPswr92UfuA_bvmfxtHds_Gc3dCaVR3gpaMGP-ywoVZA1ylrCcRr1eHGcA_YzGYjlQKLpOGYdhdirrEmeKxbVqp3zRza9RFcZ2Op1WJU9kGUmpeHvbKMCMSDjQ5Ofgspjnfg1SUAZUtiQWHYhvrUk-xh-boQtLEQcgc8QljA6e2KEI0j0bkOJktfIGoQF-EPaJ-z2pOer-3n6FENMfsnp3JstbHhix7-zsWoP4aTVp8PQPVp4';
+        Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        Axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJiYjRlZTNhMzEyN2I3NWY1MDZhNmEzNjI4ZTBhMGQ2NDIyMjZlMzNjMThhMzBkODY4MDVhN2M2NDJiMzdjOGIxODQxYjY4YjQ4YzZhZDkwIn0.eyJhdWQiOiIxIiwianRpIjoiMmJiNGVlM2EzMTI3Yjc1ZjUwNmE2YTM2MjhlMGEwZDY0MjIyNmUzM2MxOGEzMGQ4NjgwNWE3YzY0MmIzN2M4YjE4NDFiNjhiNDhjNmFkOTAiLCJpYXQiOjE1NTAwNTUxNzMsIm5iZiI6MTU1MDA1NTE3MywiZXhwIjoxNTgxNTkxMTczLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.YPKH7zLwtmFRdC6pUfZQ4SNq3pOIlw54EpaBDFfUjffm1vSSqQUZbKE5D08QjkkvrOv7LntZmaA_7g9qWFw4jc0udY-527xadHeevpGGLssaHSzic9SxfJjXTkVpG2q9tEhFlfbPEJqas5b75fzu5tXwT0cK1LKAtUrEpQ4LSPwzH20InfRVqZNmTUQcwZ_bq_4GsFUCnXustQncgqKsiPUdXCpy5JHs0pB3881YnxTGyMvMblMl4uwbyteAJVbAhdSWHIPac4xsZ578Yui_2DXpUlDB9ufvtS_v2HYd0frGUBlTiZnNmp-vYWwj2-CIhLl0_cr2fI1OhSADzSla5JSJLJtgxd9K322gmWMzEk68bCVRqQaexWqZajQ1gitqkIpvH7SE5kuP7HgCEAtk_meI13meRr8J_R4Xqfq-WonAyH7i8siwATYm5XZnXJ1o5ZUgje0-oGiLyUN0VcExv9UJE2g_nVRqlLjqn5YW5mxFqdc3HK0eO26A0hwnnIG2HZXGM7Pwr1jphCmWCA69nROKa83_UtmAkv9kgQJLkdppHuVbNnmXFlLR3Fxp5rjFSyocNDl4pAk36sAslYeqeIWiNdk8mSf3f5OvAwcXNzhFQ2YahY59uexWbqo4T39O49jw_1GjIIDbm6uh-2PCwr6kzWVeLPxvRKHZuNkea5w';
 
         event.preventDefault()
         const data = this.state
        
         console.log(data)
 
-        let url = "http://104.248.24.192:8080/api/auth/deleteAssets";
+        let url = "http://127.0.0.1:8000/api/auth/deleteAssets";
         Axios.post(url, data)
             .then((res) => {
                 
-                console.log("RESPONSE RECEIVED: ");
+                console.log(res);
+                
             })
             .catch((err) => {
                 console.log("AXIOS ERROR: ", err);
             })
-
-
+           
      }
 
      handleChange = (event) =>
@@ -48,24 +57,8 @@ class Tess extends Component {
         console.log(event.target.value)
         this.setState({
 
-            
-            // [event.target.name]:event.target.value
-            // [event.target.idn]:event.target.value,
-             [event.target.name]:event.target.value,
-            
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-             
+            [event.target.name]:event.target.value,
+           
             
         })
      }
@@ -75,37 +68,39 @@ class Tess extends Component {
         
         return (  
             <MDBContainer>
-                
+
+
+
       <MDBRow>
         <MDBCol md="6">
           <form>
             <p className="h5 text-center mb-4">delete form...</p>
             <div className="grey-text">
-            {/* <MDBInput  type="text" label="Asset Type"  name='types'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+              <MDBInput  type="number" label="Asset Code"  name='code'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
               
-                <MDBInput  type="text" label="Brand Name"  name='brandName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} /> */}
-                <MDBInput  type="number" label="Asset Code"  name='code'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              {/* <MDBInput  type="number" label="Price"  name='price'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="number" label="Warrenty Status"  name='warrantyStatus'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="number" label="Asset Status"  name='assetStatus'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="number" label="Asset Availability"  name='availability'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="date" label="Expire date"  name='expireDate'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} /> 
-              <MDBInput  type="text" label="Type(D/L)"  name='type'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="number" label="VGA"  name='vga'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="number" label="RAM"  name='memory'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="number" label="Storage"  name='storageCapacity'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="number" label="Processor"  name='processor'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} /> */}
+
+             <MDBBtn color="primary" onClick={this.toggle(14)}>Delete</MDBBtn>
+        <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
+          <MDBModalHeader toggle={this.toggle(14)}>Confirmation...</MDBModalHeader>
+          <MDBModalBody>
+            Are you sure do you want to delete this????????????
+          </MDBModalBody>
+          <MDBModalFooter>
+            <MDBBtn color="secondary" onClick={this.toggle(14)}>Cancel</MDBBtn>
+            <MDBBtn color="primary" onClick={this.handleSubmit=this.handleSubmit.bind(this)}>Yes</MDBBtn>
+          </MDBModalFooter>
+        </MDBModal>
+
               
+
               
-              
-              <MDBBtn outline color="primary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
-                Send <MDBIcon far icon="paper-plane" className="ml-1" />
-              </MDBBtn>
-              
+             
+             
             </div>
           </form>
         </MDBCol>
       </MDBRow>
+      
     </MDBContainer>
          );
     }

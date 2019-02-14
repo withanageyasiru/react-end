@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
+import { MDBContainer,MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn,MDBInput, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBListGroup,MDBListGroupItem } from 'mdbreact';
 import Axios from 'axios';
 
 class ModalPage extends Component {
@@ -35,7 +35,7 @@ PutReq=(e)=>{
  //this.props.val.id
  //let url = "http://127.0.0.1:8000/api/auth/astreq";
  e.preventDefault();
- Axios.post("http://104.248.24.192:8080/api/auth/astreq", {
+ Axios.post("http://127.0.0.1:8000/api/auth/astreq", {
        id : this.props.val.id,
        type : 1,
        descript : "my machine is broken "
@@ -68,6 +68,21 @@ render() {
                 <MDBListGroupItem>{far.price}</MDBListGroupItem>
                  <MDBListGroupItem>{far.warrantyStatus}</MDBListGroupItem>
                 <MDBListGroupItem>{"you can choose this asssets ...."}</MDBListGroupItem> 
+                <MDBInput label="From" />
+                <MDBInput label="To" />
+                <MDBDropdown>
+      <MDBDropdownToggle caret color="primary">
+       Reosan..
+      </MDBDropdownToggle>
+      <MDBDropdownMenu basic>
+        <MDBDropdownItem>Action</MDBDropdownItem>
+        <MDBDropdownItem>Another Action</MDBDropdownItem>
+        <MDBDropdownItem>Something else here</MDBDropdownItem>
+        <MDBDropdownItem divider />
+        <MDBDropdownItem>Separated link</MDBDropdownItem>
+      </MDBDropdownMenu>
+      <MDBInput type="textarea" label="Comments.." rows="5" />
+    </MDBDropdown>
               </MDBListGroup>
          
             )
