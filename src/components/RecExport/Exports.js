@@ -104,9 +104,7 @@ export default class Export extends Component {
       }
   
       async   export() {
-        axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-        axios.defaults.headers.common['Authorization'] = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImViZmJiNzJmYTNhMGIzMGRkMWQxMTJhOGQ0NjNlNzQ2ZTA1ZTMzMjJjMjY3Y2E4YzZlYmJjYmJiYWVhOTQ2NGYzZTUxNGI2YzUwNTM1NTZhIn0.eyJhdWQiOiIxIiwianRpIjoiZWJmYmI3MmZhM2EwYjMwZGQxZDExMmE4ZDQ2M2U3NDZlMDVlMzMyMmMyNjdjYThjNmViYmNiYmJhZWE5NDY0ZjNlNTE0YjZjNTA1MzU1NmEiLCJpYXQiOjE1NTAwNzgxNzAsIm5iZiI6MTU1MDA3ODE3MCwiZXhwIjoxNTgxNjE0MTcwLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.en433D9pE7d_EB-_loJtcs0iFSjahQVl72Gz_YnFbvzXC3gAsHepqToRFxvu-hiPZHFixoMzRIdyooDu47mglW21grI1EzBsqYFSKnzI5O-9o37Q_gRyaZuj2aM2eKk47DTBidAgJ6Hwxpay679fxnetksoC0QCvIBC_JJt3WVUyLRtPXeJevwaZwNtaJp4FLOJrorNMp16svj-lJ3H_38ErYb3CYDGa7efRbTPZ44RMMK6jylozfNd3lCEkBeLscSOw7szFD1rxV-9FCAVh89xRGBr0l1rqFWKco9nskz3cT9qOTIVeQVPzfSyUs3phvDZrDgB7mDhiE0Vus1PoMYyTvB9JnEcSigXLUkbhcr12WT0wlj3dNRvEQ8AtrHjmylmg8dlxmGhK6p0W8GaGHjfCmUxsU02uSbZ6bUw51WtPybJzkFNFpV1gRJGqRxF8m1dZX7fxF-Ty6yg97obN-_q_ZykHf44utpILkXRA011RpSs_SoSaMPmhd4gM66nQeZThcg_t5p97McRTeU6dyD1qZwyADZb4DW7MbMpjgdRxIGSS7RO1En3suDItSErUUnbssiKw9DNueUqfsNRbm2TYR_EBr2kEri81rdEu3MmCnBp4Eb1c02nR5LfGTqoFxXggHBkMtE9rr4ZtXDQs8dTZRTGPSArA_aA3WWRFKSk';
-    
+ 
             axios.post('http://127.0.0.1:8000/api/auth/exports',{
                 data:this.state.selections
             })
