@@ -12,7 +12,7 @@ export default class Store2 extends Component {
         this.onChangeFromUser = this.onChangeFromUser.bind(this);
         this.onChangeToDept = this.onChangeToDept.bind(this);
         this.onChangeToUser = this.onChangeToUser.bind(this);
-        this.onChangeAssetType = this.onChangeAssetType.bind(this);
+       // this.onChangeAssetType = this.onChangeAssetType.bind(this);
         this.onChangeAssetID = this.onChangeAssetID.bind(this);
         this.onChangeComment = this.onChangeComment.bind(this);
         // this.getDepratmentData = this.getDepratmentData.bind(this);
@@ -25,7 +25,7 @@ export default class Store2 extends Component {
             transfer_fromUser: '',
             transfer_toDept: 1,
             transfer_toUser: '',
-            transfer_assetType: '',
+           // transfer_assetType: '',
             transfer_assetID: '',
             transfer_comment: '',
             alert_message: '',
@@ -40,7 +40,7 @@ export default class Store2 extends Component {
         this.getDepartmentData();
         this.getUserData();
         this.getAssetID();
-        this.getAssetType()
+       // this.getAssetType()
     }
 
     getDepartmentData() {
@@ -96,7 +96,7 @@ export default class Store2 extends Component {
             })//const category
     }
 
-    getAssetType() {
+ /*   getAssetType() {
 
         // var data = 'laptop';
         //var data = this.arequest_type;
@@ -113,7 +113,7 @@ export default class Store2 extends Component {
             }).catch(error => {
                 this.setState({ alert_message: "error" });
             })//const category
-    }
+    }*/
 
     onChangeReason(e) {
         this.setState({
@@ -152,12 +152,12 @@ export default class Store2 extends Component {
         );
     }
 
-    onChangeAssetType(e) {
+  /*  onChangeAssetType(e) {
         this.setState({
             transfer_assetType: e.target.value
         }
         );
-    }
+    }*/
 
     onChangeAssetID(e) {
         this.setState({
@@ -193,7 +193,7 @@ export default class Store2 extends Component {
             transfer_fromUser: this.state.transfer_fromUser,
             transfer_toDept: this.state.transfer_toDept,
             transfer_toUser: this.state.transfer_toUser,
-            transfer_assetType: this.state.transfer_assetType,
+          //  transfer_assetType: this.state.transfer_assetType,
             transfer_assetID: this.state.transfer_assetID,
             transfer_comment: this.state.transfer_comment
         })
@@ -285,7 +285,7 @@ export default class Store2 extends Component {
                             </select>
                         </div>
                     </div>
-                    <div className="form-group">
+                 /*   <div className="form-group">
                         <label className="control-label col-sm-2" htmlFor="assetType">Asset Name</label>
                         <div className="col-sm-10">
                             <select className="form-control" id="assetType" type="text" value={this.state.transfer_assetType} name="assetType" onChange={this.onChangeAssetType}>
@@ -298,7 +298,7 @@ export default class Store2 extends Component {
                                 })}
                             </select>
                         </div>
-                    </div>
+                    </div>*/
 
                     <div className="form-group">
                         <label className="control-label col-sm-2" htmlFor="assetID">Asset ID</label>
