@@ -4,7 +4,7 @@ class ddd extends Component {
     render() { 
         return (  
             <div class="alert alert-danger" role="alert">
-  record faillll sorry......
+  OOOPS!!!!! something wrong!!!
 </div>
         );
     }

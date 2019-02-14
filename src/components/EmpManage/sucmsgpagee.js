@@ -9,7 +9,7 @@ class Msg extends Component {
     render() { 
         return (<
             div class="alert alert-success" role="alert">
-        This record added successfully.......
+        It is successful..........
       </div>
       );
     }
