@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/Roboto-Thin.dfe56a87.eot"
   },
   {
-    "revision": "afbae9759b42a2d77cf2",
-    "url": "/static/js/main.afbae975.chunk.js"
+    "revision": "20af83617de1223de1af",
+    "url": "/static/js/main.20af8361.chunk.js"
   },
   {
     "revision": "e31fcf1885e371e19f5786c2bdfeae1b",
@@ -48,12 +48,12 @@ self.__precacheManifest = [
     "url": "/static/media/fa-solid-900.9c73abbd.woff"
   },
   {
-    "revision": "3186ebd2918491445ea391a4f74e8dd7",
-    "url": "/static/media/fa-brands-400.3186ebd2.eot"
-  },
-  {
     "revision": "a995bae1d3cba3bdcf24071bf09b51c8",
     "url": "/static/media/fa-brands-400.a995bae1.ttf"
+  },
+  {
+    "revision": "3186ebd2918491445ea391a4f74e8dd7",
+    "url": "/static/media/fa-brands-400.3186ebd2.eot"
   },
   {
     "revision": "304f31f4585cf09768f9d4d69574d2d6",
@@ -84,8 +84,8 @@ self.__precacheManifest = [
     "url": "/static/media/arrow_right.8ef6a08c.svg"
   },
   {
-    "revision": "df7b648ce5356ea1ebce435b3459fd60",
-    "url": "/static/media/Roboto-Regular.df7b648c.ttf"
+    "revision": "894a2ede85a483bf9bedefd4db45cdb9",
+    "url": "/static/media/Roboto-Medium.894a2ede.ttf"
   },
   {
     "revision": "a990f611f2305dc12965f186c2ef2690",
@@ -132,16 +132,20 @@ self.__precacheManifest = [
     "url": "/static/media/Roboto-Light.3b813c2a.woff"
   },
   {
-    "revision": "ba3dcd8903e3d0af5de7792777f8ae0d",
-    "url": "/static/media/Roboto-Regular.ba3dcd89.woff"
-  },
-  {
     "revision": "fc78759e93a6cac50458610e3d9d63a0",
     "url": "/static/media/Roboto-Medium.fc78759e.woff"
   },
   {
+    "revision": "ba3dcd8903e3d0af5de7792777f8ae0d",
+    "url": "/static/media/Roboto-Regular.ba3dcd89.woff"
+  },
+  {
     "revision": "dc81817def276b4f21395f7ea5e88dcd",
     "url": "/static/media/Roboto-Bold.dc81817d.woff"
+  },
+  {
+    "revision": "df7b648ce5356ea1ebce435b3459fd60",
+    "url": "/static/media/Roboto-Regular.df7b648c.ttf"
   },
   {
     "revision": "46e48ce0628835f68a7369d0254e4283",
@@ -152,19 +156,15 @@ self.__precacheManifest = [
     "url": "/static/media/Roboto-Thin.94998475.ttf"
   },
   {
-    "revision": "894a2ede85a483bf9bedefd4db45cdb9",
-    "url": "/static/media/Roboto-Medium.894a2ede.ttf"
+    "revision": "b2dac5890219248e01c8",
+    "url": "/static/js/1.b2dac589.chunk.js"
   },
   {
-    "revision": "41d491d1cc2bec4e88b2",
-    "url": "/static/js/1.41d491d1.chunk.js"
-  },
-  {
-    "revision": "41d491d1cc2bec4e88b2",
+    "revision": "b2dac5890219248e01c8",
     "url": "/static/css/1.4f8ef75a.chunk.css"
   },
   {
-    "revision": "1aab441f5e81914a6a833855cfa55e03",
+    "revision": "2f62ad06e6b040e01c4fe41114f53b27",
     "url": "/index.html"
   }
 ];
