@@ -8,7 +8,7 @@ import Store from '../../components/AssetTransfer/Store';
 // AssetTransfer - transfer assets among pool and users
 // For Admins
 class AssetTransfer extends React.Component {
-    render() {
+    render() { 
         return (
             <div className="AssetTransfer">
                 {/* Your component code goes here */}

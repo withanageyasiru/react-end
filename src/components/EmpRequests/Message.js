@@ -167,7 +167,7 @@ class NotiMsg extends Component {
                   <td className = "text-center">{item.asset.type}</td>
                   <td className = "text-center">{item.asset.brandName}</td>
                   <td>
-                    <PopUp value={item} />
+                    <PopUp value={item} status={this.state.User_status} />
                   </td>
                 </tr>
               );

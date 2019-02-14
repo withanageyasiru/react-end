@@ -50,10 +50,10 @@ class ModalPage extends React.Component {
                 {/* <Button onClick={() => this.toggle(8)}><AcceptBtn value={1}  /></Button>
                         <Button color="primary">Save changes</Button> */}
                 <a href="#!" onClick={() => this.toggle(8)}>
-                  <AcceptBtn value={1} response={true} id ={this.props.value.id} status = {this.props.value.user.status} />
+                  <AcceptBtn value={1} response={true} id ={this.props.value.id} status = {this.props.status} />
                 </a>
                 <a href="#!" onClick={() => this.toggle(8)}>
-                   <AcceptBtn value={0} response={false} id ={this.props.value.id} status = {this.props.value.user.status} />
+                   <AcceptBtn value={0} response={false} id ={this.props.value.id} status = {this.props.status} />
                 </a>
               </ModalFooter>
             </Modal>

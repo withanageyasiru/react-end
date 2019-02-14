@@ -7,47 +7,50 @@ import ErrorAlert from './ErrorAlert';
 export default class Store extends Component {
     constructor(props) {
         super(props);
-        // this.onChangeType = this.onChangeType.bind(this);
+         this.onChangeID = this.onChangeID.bind(this);
         this.onChangeFrom = this.onChangeFrom.bind(this);
         this.onChangeTo = this.onChangeTo.bind(this);
         this.onChangeReason = this.onChangeReason.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
-        this.onChangeAsset = this.onChangeAsset.bind(this);
-        //this.onChange = this.onChange.bind(this);
+        //this.onChangeAsset = this.onChangeAsset.bind(this);
+      //  this.onChangeType = this.onChangeType.bind(this);
 
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            arequest_type: 'laptop',
+            arequest_id: '',
             arequest_from: '',
             arequest_to: '',
             arequest_reason: '',
             arequest_description: '',
             alert_message: '',
-            assets: []
+            //assets: []
 
         }
     }
 
-    componentDidMount() {
+  /*  componentDidMount() {
         this.getFormData();
     }
-
-    onChangeAsset(e) {
+*/
+   /* onChangeAsset(e) {
         this.setState({
             //  arequest_asset: e.target.value,
             arequest_type: e.target.value
         }
         );
-    }
+    }*/
 
-    /* onChangeType(e) {
+    onChangeID(e) {
+        /**
+         * get the asset details (ovindu)
+         */
           this.setState({
-              arequest_type: e.target.value
+              arequest_id: e.target.value
           }
           );
   
-      }*/
+      }
 
     onChangeFrom(e) {
         this.setState({
@@ -81,14 +84,15 @@ export default class Store extends Component {
         //prevent the page from refreshing
         e.preventDefault();
         //prepare data tobe sent to the api call
-
+        
         //calling api
-        axios.post('http://104.248.24.192:8080:8000/api/request/store', {
-            arequest_type: this.state.arequest_type,
-            arequest_from: this.state.arequest_from,
-            arequest_to: this.state.arequest_to,
-            arequest_reason: this.state.arequest_reason,
-            arequest_description: this.state.arequest_description
+        axios.post('http://104.248.24.192:8080/api/auth/astreq', {
+            id: this.state.arequest_type,
+            from: this.state.arequest_from,
+            to: this.state.arequest_to,
+            reason: this.state.arequest_reason,
+            description: this.state.arequest_description
+
         })
             //then(function (res) {return Console.log(res.data);}); 
             .then(res => {
@@ -108,12 +112,12 @@ export default class Store extends Component {
         });
     }
 
-    getFormData() {
+   /*getFormData() {
 
 
         // var data = 'laptop';
         //var data = this.arequest_type;
-        axios.get('http://104.248.24.192:8080:8000/api/getFormData')
+        axios.get('http://localhost:8000/api/getFormData')
 
             //then(function (res) {return Console.log(res.data);}); 
             .then(res => {
@@ -125,7 +129,7 @@ export default class Store extends Component {
                 this.setState({ alert_message: "error" });
             })//const category
     }
-
+*/
 
 
     render() {
@@ -140,9 +144,10 @@ export default class Store extends Component {
 
 
                     <div className="form-group">
-                        <label className="control-label col-sm-2" htmlFor="type">Asset</label>
+                        <label className="control-label col-sm-2" htmlFor="id">Asset</label>
                         <div className="col-sm-10">
-                            <select className="form-control" id="type" type="text" value={this.state.arequest_type} name="type" onChange={this.onChangeAsset}>
+                        <input type="text" className="form-control" id="id" name="id" placeholder="Asset ID" value={this.state.arequest_id} onChange={this.onChangeID}></input>
+                           {/*} <select className="form-control" id="type" type="text" value={this.state.arequest_type} name="type" onChange={this.onChangeAsset}>
 
 
                                 {this.state.assets.map(function (item, id) {
@@ -153,7 +158,7 @@ export default class Store extends Component {
                                     );
                                 })}
 
-                            </select>
+                            </select>*/}
                         </div>
                     </div>
 

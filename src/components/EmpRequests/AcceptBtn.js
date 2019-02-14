@@ -12,7 +12,7 @@ export default class AcceptBtn extends Component {
       responseType: 0,
       css: 'btn btn-outline-success',
       labl: 'accept',
-      status: 3,
+      status: 0,
       respond: false,
       token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImFiZDZhZjczMjQ1OTBkMmVlYjQ1MzhjYTI4ZDFmMDQ4ZDBlNGM3MjNkODc0NjUwNGZkOGQ4YmRhYzI4ZDYwYmU3ODY3OTJjNjUzZTBlZjNiIn0.eyJhdWQiOiIxIiwianRpIjoiYWJkNmFmNzMyNDU5MGQyZWViNDUzOGNhMjhkMWYwNDhkMGU0YzcyM2Q4NzQ2NTA0ZmQ4ZDhiZGFjMjhkNjBiZTc4Njc5MmM2NTNlMGVmM2IiLCJpYXQiOjE1NDk3MTk5OTYsIm5iZiI6MTU0OTcxOTk5NiwiZXhwIjoxNTgxMjU1OTk2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.QeoAnHTH-_Ir_z7ucMbW2R4b70q_U7Oz04dIDRXI5IEeohXzB5UVXgmvbq4R-TppzQmrdy0Pq4tRqCurtut_6G4wam6Xv9JwS5qjtJgkSzdeSy74j7t7qUe3-3pMZDcwWUMY_2kz3qx2wg1rng9CP-HI4n5Oc4euctlQun7pcb_ZsM2hF34dYCHBxzhAxOyYz9rFPpSkrjtG6xByGhOgIOhb6lz4NSMetVRUjUPWsW8cKLLa3gg85_uFLFJBoX6NBEzKcOKWMl_ka2rl8Z_yMRgH0ogAz4-2Qr7xTnlAFeMA8Th3NYzJAaIT_LD0_IcXudmRySD93fdwbWz1VaUWVyZFhOaMRQwAmUZhCvYTwOPlLToeokscEo76fedPXEmGZSQB51RUpLVhmPW_mz2JXU_EGKKuQ9ZRUmfhGPFtTmj386D-pbNAkLVnMfcUDWeFe_kSgaY3fAfRaWp5Jm8KDLNjR5X4cMQMZLV-K8zzz_lJoyacT170dAp5vLabL5GNIu3e5RhoSCdP__IUrl8TAaSOB9boqIML77AfG1TDZBq-M_JU1Kf5SavrpJTybkN2p4px0g8aWegmbUfHnLAx-Hx64YVxQE-ErMsdNSdJ508HkIAy9E9eIHhPzLGvS5JQys0C8UGG5JeqGHBtpLqn7p6L4TAPMkQamqpM0bdFQwc',
       //url : "http://127.0.0.1:8000/"
@@ -58,8 +58,7 @@ export default class AcceptBtn extends Component {
       status: this.props.status
     })
 
-    if (this.state.status === 1) { this.setState({ url: "http://104.248.24.192:8080/api/auth/responhead" }) }
-    if (this.state.status === 3) { this.setState({ url: "http://104.248.24.192:8080/api/auth/responit" }) }
+    
     this.switcher();
   }
 
@@ -87,12 +86,15 @@ export default class AcceptBtn extends Component {
 
     //let token = document.head.querySelector('meta[name="csrf-token"]');
     //this.login();
+    var url;
+    if (this.state.status == 1) {  url = "http://104.248.24.192:8080/api/auth/responhead" ; }
+    if (this.state.status == 3) {  url = "http://104.248.24.192:8080/api/auth/responit" ; }
     var postData = {
       id: this.state.notiId,
       response: this.state.respond,
     };
 
-    axios.post(this.state.url, postData)
+    axios.post(url, postData)
       .then((res) => {
         this.notify('success');
         console.log("RESPONSE RECEIVED: ", res);
