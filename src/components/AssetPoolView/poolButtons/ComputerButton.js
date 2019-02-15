@@ -44,7 +44,7 @@ PutReq=(e)=>{
  console.log(data)
  e.preventDefault();
  Axios.post("http://104.248.24.192:8080/api/auth/astreq", {
-     id:this.state.id,
+     id:this.props.val.id,
     from: this.state.from,
     to: this.state.to,
     reason: this.state.reason,
@@ -75,7 +75,7 @@ handleChange = (event) =>
 
             
            
-             [event.target.name]:event.target.value,
+            
              [event.target.name]:event.target.value,
              [event.target.name]:event.target.value,
              [event.target.name]:event.target.value,
@@ -105,22 +105,17 @@ render() {
             return(
               <div>
                 <MDBListGroup style={{ width: "22rem" }}key={far.id}>
-                <MDBListGroupItem>{far.id}</MDBListGroupItem>
-                <MDBListGroupItem>{far.brandName}</MDBListGroupItem>
-                <MDBListGroupItem>{far.price}</MDBListGroupItem>
-                 <MDBListGroupItem>{far.warrantyStatus}</MDBListGroupItem>
-                <MDBListGroupItem>{"you can choose this asssets ...."}</MDBListGroupItem> 
+                <MDBListGroupItem>{"computer id = "+far.id}</MDBListGroupItem>
+                <MDBListGroupItem>{"computer brand name = "+far.brandName}</MDBListGroupItem>
+                <MDBListGroupItem>{"computer price = Rs "+far.price}</MDBListGroupItem>
+                 <MDBListGroupItem>{"computer warrentystatus = "+far.warrantyStatus}</MDBListGroupItem>
+                <MDBListGroupItem><b>{"This computerType is = "+far.computerType}</b></MDBListGroupItem> 
                </MDBListGroup>
 
                <form >
 
 
- <div className="form-group">
-                        {/* <label className="control-label col-sm-2" htmlFor="id">Asset Id</label> */}
-                        <div className="col-sm-10">
-                        <MDBInput  type="number" label="Asset Id"  name='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-     </div>
-</div>                  
+                   
 
 
 

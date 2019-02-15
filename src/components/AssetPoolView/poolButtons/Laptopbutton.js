@@ -43,7 +43,7 @@ PutReq=(e)=>{
   //let url = "http://127.0.0.1:8000/api/auth/astreq";
   e.preventDefault();
   Axios.post("http://104.248.24.192:8080/api/auth/astreq", {
-    id:this.state.id,
+    id:this.props.val.id,
     from: this.state.from,
     to: this.state.to,
     reason: this.state.reason,
@@ -74,7 +74,7 @@ PutReq=(e)=>{
 
             
            
-             [event.target.name]:event.target.value,
+            
              [event.target.name]:event.target.value,
              [event.target.name]:event.target.value,
              [event.target.name]:event.target.value,
@@ -101,23 +101,17 @@ render() {
         this.state.arri.map(far =>{
             return(
               <div>
-                <MDBListGroup style={{ width: "22rem" }}key={far.id}>
-                <MDBListGroupItem>{far.id}</MDBListGroupItem>
-                <MDBListGroupItem>{far.brandName}</MDBListGroupItem>
-                <MDBListGroupItem>{far.price}</MDBListGroupItem>
-                 <MDBListGroupItem>{far.warrantyStatus}</MDBListGroupItem>
-                <MDBListGroupItem>{"you can choose this asssets ...."}</MDBListGroupItem> 
-               </MDBListGroup>
+              <MDBListGroup style={{ width: "22rem" }}key={far.id}>
+                <MDBListGroupItem>{"Asset Id = "+far.id}</MDBListGroupItem>
+                <MDBListGroupItem>{"Asset vga = "+far.vga}</MDBListGroupItem>
+                <MDBListGroupItem>{"Asset memory is = "+far.memory}</MDBListGroupItem>
+                 <MDBListGroupItem>{"Asset type = "+far.type}</MDBListGroupItem>
+                 
+              </MDBListGroup>
                
                <form >
 
 
- <div className="form-group">
-                        {/* <label className="control-label col-sm-2" htmlFor="id">Asset Id</label> */}
-                        <div className="col-sm-10">
-                        <MDBInput  type="number" label="Asset Id"  name='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-     </div>
-</div>                  
 
 
 
