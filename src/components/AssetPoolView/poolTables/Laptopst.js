@@ -80,13 +80,12 @@ console.log(this.state.arr);
                
          this.state.arr.map(ari =>{
           return(
-         <tr key={ari.id}>
+            <tr key={ari.id}>
+         <td>{ari.id}</td>
          <td>{ari.brandName}</td>
          <td>{ari.price}</td>
          <td>{ari.warrantyStatus}</td>
-         <td>{ari.assetStatus}</td>
          <td><But val={ari} /> </td>
-         
        </tr>
         
           )

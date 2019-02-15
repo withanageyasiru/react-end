@@ -43,7 +43,7 @@ PutReq=(e)=>{
   //let url = "http://127.0.0.1:8000/api/auth/astreq";
   e.preventDefault();
   Axios.post("http://104.248.24.192:8080/api/auth/astreq", {
-    id:this.state.id,
+    id:this.props.val.id,
     from: this.state.from,
     to: this.state.to,
     reason: this.state.reason,
@@ -75,7 +75,7 @@ PutReq=(e)=>{
 
             
            
-             [event.target.name]:event.target.value,
+            
              [event.target.name]:event.target.value,
              [event.target.name]:event.target.value,
              [event.target.name]:event.target.value,
@@ -106,18 +106,13 @@ render() {
                 <MDBListGroupItem>{far.capacity}</MDBListGroupItem>
                 <MDBListGroupItem>{far.brandName}</MDBListGroupItem>
                  <MDBListGroupItem>{far.price}</MDBListGroupItem>
-                <MDBListGroupItem>{"you can choose this asssets ...."}</MDBListGroupItem> 
+                
               </MDBListGroup>
                
                <form >
 
 
- <div className="form-group">
-                        {/* <label className="control-label col-sm-2" htmlFor="id">Asset Id</label> */}
-                        <div className="col-sm-10">
-                        <MDBInput  type="number" label="Asset Id"  name='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-     </div>
-</div>                  
+                
 
 
 
