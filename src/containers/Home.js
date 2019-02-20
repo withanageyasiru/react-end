@@ -71,9 +71,7 @@ class Home extends React.Component {
                             </MDBNavbarNav>
                             <MDBNavbarNav right>
                                 <MDBNavItem className="px-md-3">
-                                    <MDBNavLink to="#">
-                                        <MDBIcon icon="bell" />
-                                    </MDBNavLink>
+                                   
                                 </MDBNavItem>
                                 <MDBNavItem onClick={this.handleLogout} className="px-lg-1">
                                     <MDBNavLink to="#">

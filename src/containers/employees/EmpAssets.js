@@ -1,5 +1,5 @@
 
-import { Switch } from 'react-router-dom';
+import { Switch ,Link } from 'react-router-dom';
 import { MDBContainer, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import AuthRoute from '../../components/AuthRoute';
 import Abc from '../../components/EmpAssets/byid';
@@ -16,8 +16,18 @@ class Assetspp extends Component {
                   choose
                 </MDBDropdownToggle>
                 <MDBDropdownMenu basic>
-                  <MDBDropdownItem href="/home/emp_assets/id">ID</MDBDropdownItem>
-                  <MDBDropdownItem  href="/home/emp_assets/depid" >Department ID</MDBDropdownItem>
+                  <MDBDropdownItem ><Link to="/home/emp_assets/id">ID</Link></MDBDropdownItem>
+                  <MDBDropdownItem ><Link to="/home/emp_assets/depid">Department ID</Link></MDBDropdownItem>
+                  {/* <MDBDropdownItem> 
+                        <Link to="/home/emp_assets/id">
+                        ID
+                        </Link>
+                      </MDBDropdownItem>
+                      <MDBDropdownItem> 
+                        <Link to="/home/emp_assets/depid">
+                        Department ID
+                        </Link>
+                      </MDBDropdownItem> */}
                   
                 </MDBDropdownMenu>
               </MDBDropdown>
