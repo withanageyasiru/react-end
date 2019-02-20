@@ -21,6 +21,7 @@ class AssetRequest extends React.Component {
                 <Link to="/home/asset_request/request/view" className="btn black-text rounded-pill">Approve</Link>
 
                 <Switch>
+                    <AuthRoute exact path="/home/asset_request" component={List} props={this.props} />
                     <AuthRoute exact path="/home/asset_request/requests" component={List} props={this.props} />
                     <AuthRoute exact path="/home/asset_request/request/store" component={Store} props={this.props} />
                     <AuthRoute exact path="/home/asset_request/request/edit/:id" component={Edit} props={this.props} />

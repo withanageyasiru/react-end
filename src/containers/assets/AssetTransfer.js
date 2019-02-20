@@ -21,6 +21,7 @@ class AssetTransfer extends React.Component {
                 <Link to="/home/asset_transfer/transfer/store" className="btn black-text rounded-pill">New Transfer</Link>
 
                 <Switch>
+                    <AuthRoute exact path="/home/asset_transfer" component={List} props={this.props} />
                     <AuthRoute exact path="/home/asset_transfer/transfers" component={List} props={this.props} />
                     <AuthRoute exact path="/home/asset_transfer/transfer/store" component={Store} props={this.props} />
                 </Switch>
