@@ -57,7 +57,7 @@ class Home extends React.Component {
         return (
             <div className="Home">
                 <header>
-                    <MDBNavbar className="aqua-gradient z-depth-1-half" light expand="md" fixed="top">
+                    <MDBNavbar className="z-depth-1-half" color="indigo" light expand="md" fixed="top">
                         <MDBNavbarBrand href="/">
                             <strong>SimCentric</strong>
                         </MDBNavbarBrand>
@@ -71,9 +71,7 @@ class Home extends React.Component {
                             </MDBNavbarNav>
                             <MDBNavbarNav right>
                                 <MDBNavItem className="px-md-3">
-                                    <MDBNavLink to="#">
-                                        <MDBIcon icon="bell" />
-                                    </MDBNavLink>
+                                   
                                 </MDBNavItem>
                                 <MDBNavItem onClick={this.handleLogout} className="px-lg-1">
                                     <MDBNavLink to="#">
