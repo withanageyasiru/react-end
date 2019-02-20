@@ -105,7 +105,7 @@ export default class Export extends Component {
   
       async   export() {
  
-            axios.post('http://127.0.0.1:8000/api/auth/exports',{
+            axios.post('http://104.248.24.192:8080/api/auth/exports',{
                 data:this.state.selections
             })
                 .then(response => {
@@ -123,7 +123,7 @@ export default class Export extends Component {
       renderExport(){
         if(this.state.exportEnable===true){
           return(
-            <Workbook filename="example.xlsx" element={<button className="btn btn-lg btn-primary">Exporty</button>}>
+            <Workbook filename="example.xlsx" element={<button className="btn btn-lg btn-primary">Export</button>}>
                 <Workbook.Sheet data={this.state.assets} name="Sheet A">
 
                     { this.state.checkboxes.id===true ? <Workbook.Column label="Asset Id" value="id" /> : <></> }

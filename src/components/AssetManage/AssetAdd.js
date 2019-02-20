@@ -17,7 +17,11 @@ import compo from "./addAssetx.js/addcomponents";
 import ups from "./addAssetx.js/addups";
 import oth from "./addAssetx.js/addothers";
 import AuthRoute from "../../components/AuthRoute";
+
+
+
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 class Tess extends Component {
   render() {
     return (
@@ -33,25 +37,27 @@ class Tess extends Component {
                       choose add type
                     </MDBDropdownToggle>
                     <MDBDropdownMenu right basic>
-                      <MDBDropdownItem>
-                        <Link to="/home/asset_manage/add/computers">
 
-                          Computers
+                      <MDBDropdownItem> 
+                        <Link to="/home/asset_manage/add/computers">
+                       
+                        Computers
                         </Link>
                       </MDBDropdownItem>
-                      <MDBDropdownItem>
+                      <MDBDropdownItem> 
                         <Link to="/home/asset_manage/add/components">
-                          Components
+                        Components
                         </Link>
                       </MDBDropdownItem>
-                      <MDBDropdownItem>
+                      <MDBDropdownItem> 
                         <Link to="/home/asset_manage/add/ups">
-                          Ups
+                        Ups
                         </Link>
                       </MDBDropdownItem>
-                      <MDBDropdownItem>
+                      <MDBDropdownItem> 
                         <Link to="/home/asset_manage/add/others">
-                          Others
+                        Others
+
                         </Link>
                       </MDBDropdownItem>
 

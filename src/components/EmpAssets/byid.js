@@ -19,8 +19,8 @@ class Assetsadd extends Component {
     
     handleSubmit = (event) =>
     {
-    //    Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-    //    Axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjhjNTk5YTRkNDMwMGEwYTczN2RjMzMwZGRkMDMyOTc2NGVkYmE1N2M4N2E3MzIwYzYzZmUzODhlNjQ0MTMzM2NmYmU2ZjdiNGI1MDE1MGFlIn0.eyJhdWQiOiIxIiwianRpIjoiOGM1OTlhNGQ0MzAwYTBhNzM3ZGMzMzBkZGQwMzI5NzY0ZWRiYTU3Yzg3YTczMjBjNjNmZTM4OGU2NDQxMzMzY2ZiZTZmN2I0YjUwMTUwYWUiLCJpYXQiOjE1NDk4MTA0MTUsIm5iZiI6MTU0OTgxMDQxNSwiZXhwIjoxNTgxMzQ2NDE1LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.ZvY_HdEGJEus8blsHciIWMnO8gEFhYzz2bbZVxr5KTcgcVBXF-Gq0K5AH_pz-OFA9VeCeXP-Xo8R3NRpJOAItunRzWOerezIlM3IewEfcl6kSgo75dS8MO3VMaO-eM2ANnO90iBTTpC6NXjMn7MfVUN-enes_bPD_spzo1LLBOvcq9CXeFo8u2lmMVs7UsnGGZ6CgXYTCGe4MUbkpJ5eztxyEHm-haOGIcbuxzSu7_PsBs-FRRlkQusit_vTzjR3O71rqDXyjQtK2ZAvDwA43Dg2-0X2QAxM5QDgJ4GeZUgTHiUNIeRp0FcHuKtnJ9PLnzzk39_xaVPXnk-ExvyTqBzWmY76jzGfWnntClSR2d4R-dyhMbrDX55dPS4CzG3c1uZnOLbDoMTfCFDLJ7iT5RQZcD9pKTMLVO3JrU-C9iZ-M7-lk_mCf9HyN0IPswr92UfuA_bvmfxtHds_Gc3dCaVR3gpaMGP-ywoVZA1ylrCcRr1eHGcA_YzGYjlQKLpOGYdhdirrEmeKxbVqp3zRza9RFcZ2Op1WJU9kGUmpeHvbKMCMSDjQ5Ofgspjnfg1SUAZUtiQWHYhvrUk-xh-boQtLEQcgc8QljA6e2KEI0j0bkOJktfIGoQF-EPaJ-z2pOer-3n6FENMfsnp3JstbHhix7-zsWoP4aTVp8PQPVp4';
+      //  Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+      //  Axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJiYjRlZTNhMzEyN2I3NWY1MDZhNmEzNjI4ZTBhMGQ2NDIyMjZlMzNjMThhMzBkODY4MDVhN2M2NDJiMzdjOGIxODQxYjY4YjQ4YzZhZDkwIn0.eyJhdWQiOiIxIiwianRpIjoiMmJiNGVlM2EzMTI3Yjc1ZjUwNmE2YTM2MjhlMGEwZDY0MjIyNmUzM2MxOGEzMGQ4NjgwNWE3YzY0MmIzN2M4YjE4NDFiNjhiNDhjNmFkOTAiLCJpYXQiOjE1NTAwNTUxNzMsIm5iZiI6MTU1MDA1NTE3MywiZXhwIjoxNTgxNTkxMTczLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.YPKH7zLwtmFRdC6pUfZQ4SNq3pOIlw54EpaBDFfUjffm1vSSqQUZbKE5D08QjkkvrOv7LntZmaA_7g9qWFw4jc0udY-527xadHeevpGGLssaHSzic9SxfJjXTkVpG2q9tEhFlfbPEJqas5b75fzu5tXwT0cK1LKAtUrEpQ4LSPwzH20InfRVqZNmTUQcwZ_bq_4GsFUCnXustQncgqKsiPUdXCpy5JHs0pB3881YnxTGyMvMblMl4uwbyteAJVbAhdSWHIPac4xsZ578Yui_2DXpUlDB9ufvtS_v2HYd0frGUBlTiZnNmp-vYWwj2-CIhLl0_cr2fI1OhSADzSla5JSJLJtgxd9K322gmWMzEk68bCVRqQaexWqZajQ1gitqkIpvH7SE5kuP7HgCEAtk_meI13meRr8J_R4Xqfq-WonAyH7i8siwATYm5XZnXJ1o5ZUgje0-oGiLyUN0VcExv9UJE2g_nVRqlLjqn5YW5mxFqdc3HK0eO26A0hwnnIG2HZXGM7Pwr1jphCmWCA69nROKa83_UtmAkv9kgQJLkdppHuVbNnmXFlLR3Fxp5rjFSyocNDl4pAk36sAslYeqeIWiNdk8mSf3f5OvAwcXNzhFQ2YahY59uexWbqo4T39O49jw_1GjIIDbm6uh-2PCwr6kzWVeLPxvRKHZuNkea5w';
 
        event.preventDefault()
        const data = this.state
@@ -73,7 +73,7 @@ class Assetsadd extends Component {
       <MDBRow>
         <MDBCol md="6">
           <form>
-            <p className="h5 text-center mb-4">Write to us</p>
+            <p className="h5 text-center mb-4">Search by User Id</p>
             <div className="grey-text">
             
             <MDBInput  type="number" label="User Id"  name='user_id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
