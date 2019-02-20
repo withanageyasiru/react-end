@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Link } from 'react-router-dom';
-import 'mdbreact';
+import { MDBBtn } from "mdbreact";
 import AuthRoute from '../../components/AuthRoute';
 import List from '../../components/AssetTransfer/List';
 import Store from '../../components/AssetTransfer/Store';

@@ -55,9 +55,9 @@ class Home extends React.Component {
         };
 
         return (
-            <div className="Home">
+            <div className="Home" >
                 <header>
-                    <MDBNavbar className="aqua-gradient z-depth-1-half" light expand="md" fixed="top">
+                    <MDBNavbar className="z-depth-1-half" color="blue darken-1" light expand="md" fixed="top">
                         <MDBNavbarBrand href="/">
                             <strong>SimCentric</strong>
                         </MDBNavbarBrand>
@@ -87,9 +87,9 @@ class Home extends React.Component {
                 </header>
                 
                 <main className="pt-5">
-                    <MDBView src="#" alt="background image">
-                        {/* https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg */}
-                        <MDBMask className ="pt-4 px-1 px-xl-5" >
+                    <MDBView src="3" alt="background image">
+                       
+                        <MDBMask className ="pt-4 px-1 px-xl-5" color=" mdb-color darken-3" >
                             <HomeRooutes childProps={childProps} />
                         </MDBMask>
                     </MDBView>

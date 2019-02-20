@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SuccessAlert from './SuccessAlert';
 import ErrorAlert from './ErrorAlert';
-
+import { MDBBtn } from "mdbreact";
 
 export default class Store extends Component {
     constructor(props) {
@@ -199,8 +199,10 @@ export default class Store extends Component {
                                     onChange={this.onChangeDescription}></input>
                             </div>
                         </div>
-                    </div>
-                    <button type="submit" size="sm" className="btn btn-primary">Submit</button>
+                    </div> 
+                    <MDBBtn  outline type="submit" color="success" className = "rounded-pill">Submit</MDBBtn>
+      
+                    {/* <button type="submit" size="sm" className="btn btn-primary">Submit</button> */}
                 </form>
             </div>
         );
