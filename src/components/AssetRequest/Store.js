@@ -12,8 +12,7 @@ export default class Store extends Component {
         this.onChangeTo = this.onChangeTo.bind(this);
         this.onChangeReason = this.onChangeReason.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
-        //this.onChangeAsset = this.onChangeAsset.bind(this);
-      //  this.onChangeType = this.onChangeType.bind(this);
+
 
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -24,27 +23,14 @@ export default class Store extends Component {
             arequest_reason: '',
             arequest_description: '',
             alert_message: '',
-            //assets: []
 
         }
     }
 
-  /*  componentDidMount() {
-        this.getFormData();
-    }
-*/
-   /* onChangeAsset(e) {
-        this.setState({
-            //  arequest_asset: e.target.value,
-            arequest_type: e.target.value
-        }
-        );
-    }*/
+
 
     onChangeID(e) {
-        /**
-         * get the asset details (ovindu)
-         */
+  
           this.setState({
               arequest_id: e.target.value
           }
@@ -112,25 +98,7 @@ export default class Store extends Component {
         });
     }
 
-   /*getFormData() {
-
-
-        // var data = 'laptop';
-        //var data = this.arequest_type;
-        axios.get('http://localhost:8000/api/getFormData')
-
-            //then(function (res) {return Console.log(res.data);}); 
-            .then(res => {
-                this.setState({
-                    assets: res.data.assets
-                })
-                console.log(this.state.assets);
-            }).catch(error => {
-                this.setState({ alert_message: "error" });
-            })//const category
-    }
-*/
-
+   
 
     render() {
         return (
@@ -147,18 +115,6 @@ export default class Store extends Component {
                         <label className="control-label col-sm-2" htmlFor="id">Asset</label>
                         <div className="col-sm-10">
                         <input type="text" className="form-control" id="id" name="id" placeholder="Asset ID" value={this.state.arequest_id} onChange={this.onChangeID}></input>
-                           {/*} <select className="form-control" id="type" type="text" value={this.state.arequest_type} name="type" onChange={this.onChangeAsset}>
-
-
-                                {this.state.assets.map(function (item, id) {
-                                    return (
-                                        <option key={item.id}>
-                                            {item.type}
-                                        </option>
-                                    );
-                                })}
-
-                            </select>*/}
                         </div>
                     </div>
 
@@ -201,8 +157,6 @@ export default class Store extends Component {
                         </div>
                     </div> 
                     <MDBBtn  outline type="submit" color="success" className = "rounded-pill">Submit</MDBBtn>
-      
-                    {/* <button type="submit" size="sm" className="btn btn-primary">Submit</button> */}
                 </form>
             </div>
         );

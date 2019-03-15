@@ -6,11 +6,13 @@ import { MDBBtn } from "mdbreact";
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
 export default class List extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       arequests: [],
+      type : false
     }
+    this.renderStatus = this.renderStatus.bind(this);
   }
 
 
@@ -18,11 +20,14 @@ export default class List extends Component {
 
   //calling API
   componentDidMount() {
+    this.setState({
+      type : this.props.type
+    })
     axios.get('http://104.248.24.192:8080/api/auth/requests')
       .then(response => {
         this.setState({
           arequests: response.data
-
+          
         });
       });
   }
@@ -48,6 +53,17 @@ export default class List extends Component {
 
   }
 
+  renderStatus(data){
+    console.log(this.state.arequests);
+    switch(data){
+      case 0: return("Not approved yet");
+      case 1: return("Rejected by Department Head");
+      case 3: return("Accepted by Department Head");
+      case 7: return("Rejected by IT ");
+      case 15: return("Approved");
+    }
+  }
+
   render() {
     return (
       <div>
@@ -58,10 +74,10 @@ export default class List extends Component {
             <tr>
               <th>#</th>
               <th>Asset</th>
-              <th>From</th>
-              <th>To</th>
+              {!this.state.type ? <th>From</th> : <></>}
+              {!this.state.type ? <th>To</th> : <></>}            
               <th>Reason</th>
-              <th>Description</th>
+              {!this.state.type ? <th>Description</th> : <></>}
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -74,11 +90,12 @@ export default class List extends Component {
                   <tr key={arequest.id}>
                     <td>{arequest.id}</td>
                     <td>{arequest.type}</td>
-                    <td>{arequest.from}</td>
-                    <td>{arequest.to}</td>
+                    {!this.state.type ? <td>{arequest.from}</td> : <></>}
+                    {!this.state.type ? <td>{arequest.to}</td> : <></>} 
                     <td>{arequest.reason}</td>
-                    <td>{arequest.description}</td>
-                    <td>{arequest.status === 0 ? ("Not approved yet") : ("Approved")}</td>
+                    {!this.state.type ? <td>{arequest.description}</td> : <></>}                    
+                    {/* <td>{arequest.status === 0 ? ("Not approved yet") : ("Approved")}</td> */}
+                    <td>{this.renderStatus(arequest.status )}</td>
                     <td><Link to={'/request/edit/' + arequest.id} ><MDBBtn className = "rounded-pill" size="sm" outline color="info">Edit</MDBBtn></Link>  &nbsp;
                                        <a href="#!" onClick={this.onDelete.bind(this, arequest.id)}><MDBBtn className = "rounded-pill" size="sm" outline color="danger">Delete</MDBBtn></a>
                     </td>
@@ -90,16 +107,6 @@ export default class List extends Component {
 
           </MDBTableBody>
         </MDBTable>
-
-        {/* <div className="row text-center" style={{ marginTop: '100px' }}>
-          <Workbook filename="example.xlsx" element={<button className="btn btn-lg btn-primary">Try me!</button>}>
-            <Workbook.Sheet data={this.state.arequests} name="Sheet A">
-              <Workbook.Column label="Foo" value="type" />
-              <Workbook.Column label="Bar" value="id" />
-            </Workbook.Sheet>
-
-          </Workbook>
-        </div> */}
         </div>
 
     );

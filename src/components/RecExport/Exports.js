@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Workbook from 'react-excel-workbook';
+import { Checkbox } from 'semantic-ui-react';
 // MDBBtn } from "mdbreact";
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol , MDBInput } from 'mdbreact';
 const OPTIONS = ["id", "type", "brandName"];
+
 
 
 export default class Export extends Component {
@@ -64,8 +66,10 @@ export default class Export extends Component {
         });
     }
 
-    async handleCheckboxChange(changeEvent) {
-        const { name } = changeEvent.target;
+    async handleCheckboxChange(changeEvent , data) {
+        console.log('event' ,changeEvent );
+        console.log('data' ,data );
+        const { name } = data;
 
         await this.setState(prevState => ({
             checkboxes: {
@@ -140,7 +144,7 @@ export default class Export extends Component {
 
                                         {this.state.checkboxes[this.state.selections[0]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[0]]} value={this.state.selections[0]} /> : <></>}
                                         {this.state.checkboxes[this.state.selections[1]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[1]]} value={this.state.selections[1]} /> : <></>}
-                                        {this.state.checkboxes.brandName === true ? <Workbook.Column label="Brand Name" value="brandName" /> : <></>}
+                                        {this.state.checkboxes[this.state.selections[2]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[2]]} value={this.state.selections[2]} /> : <></>}
 
                                     </Workbook.Sheet>
                                 </Workbook>
@@ -178,7 +182,7 @@ export default class Export extends Component {
 
 
                             <MDBCol>
-                                <MDBCard style={{ width: "30rem" }}>
+                                <MDBCard style={{ width: "30rem", paddingLeft:'50px' }}>
 
                                     <MDBCardBody>
                                         <MDBCardTitle>Export Assets' Details</MDBCardTitle>
@@ -191,14 +195,18 @@ export default class Export extends Component {
                                                             <React.Fragment key={day}>
                                                                 <div className="form-check">
 
-                                                                    <p>
-                                                                        <input
+                                                                    <p>  
+                                                                        {/* <MDBInput name={day}  checked={this.state.checkboxes[day]}  type="checkbox"  onChange={this.handleCheckboxChange}/> */}
+                                                                        <Checkbox toggle name={day} label={this.state.lables[day]} type="checkbox" checked={this.state.checkboxes[day]}   onChange={this.handleCheckboxChange} /> 
+                                                                        {
+                                                                        /* <input
                                                                             type="checkbox"
                                                                             name={day}
                                                                             checked={this.state.checkboxes[day]}
                                                                             onChange={this.handleCheckboxChange}
-                                                                        />
-                                                                        {this.state.lables[day]}
+                                                                        /> */
+                                                                        }
+                                                                        
                                                                     </p>
                                                                 </div>
                                                             </React.Fragment>

@@ -11,7 +11,7 @@ class MenuAssets extends React.Component {
     render() {
         return (
             <div className="MenuAssets">
-                <MDBNavItem
+                <MDBNavItem color="unique-color-dark"
                     className="px-lg-1"
                     hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
                 >
@@ -20,8 +20,8 @@ class MenuAssets extends React.Component {
                             <div className="d-inline-flex d-md-inline">
                                 <MDBIcon icon="box-open" /> Assets
                             </div>
-                        </MDBDropdownToggle>
-                        <MDBDropdownMenu className="dropdown-default" right>
+                        </MDBDropdownToggle  >
+                        <MDBDropdownMenu caret color="dark" className="dropdown-default" right>
                             {/* <MDBDropdownItem
                                 hidden={!(this.emplo || this.all)}
                             >
@@ -30,7 +30,7 @@ class MenuAssets extends React.Component {
                             <MDBDropdownItem
                                 hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
                             >
-                                <MDBNavLink to="/home/asset_pool">View Asset Pool</MDBNavLink>
+                                <MDBNavLink  color="unique-color-dark "to="/home/asset_pool">View Asset Pool</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
                                 hidden={!(this.emplo || this.all)}

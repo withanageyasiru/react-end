@@ -57,13 +57,16 @@ class Home extends React.Component {
         return (
             <div className="Home" >
                 <header>
-                    <MDBNavbar className="z-depth-1-half" color="blue darken-1" light expand="md" fixed="top">
+ 
+                {/* rgba(0, 150, 136, 0.7) rgba-teal-strong */}
+                    
+                    <MDBNavbar className="z-depth-1-half" color="unique-color-dark" textWhite expand="md" fixed="top" >
                         <MDBNavbarBrand href="/">
                             <strong>SimCentric</strong>
                         </MDBNavbarBrand>
                         {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                         <MDBCollapse isOpen={this.state.collapse} navbar>
-                            <MDBNavbarNav left>
+                            <MDBNavbarNav light left>
                                 <MenuAssets levelAuth={this.props.levelAuth}/>
                                 <MenuEmployees levelAuth={this.props.levelAuth} />
                                 <MenuDepartments levelAuth={this.props.levelAuth} />
@@ -73,7 +76,7 @@ class Home extends React.Component {
                                 <MDBNavItem className="px-md-3">
                                    
                                 </MDBNavItem>
-                                <MDBNavItem onClick={this.handleLogout} className="px-lg-1">
+                                <MDBNavItem onClick={this.handleLogout} light className="px-lg-1">
                                     <MDBNavLink to="#">
                                         <MDBIcon icon="sign-out-alt" />
                                         <strong> Logout</strong>
