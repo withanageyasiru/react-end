@@ -89,7 +89,7 @@ render() {
   return (
       
     <MDBContainer>
-    <hr /> 
+    
            {this.state.msg=="suc"?<Msgs />:null}
            {this.state.msg=="fail"?<Msgs2 />:null}
     <MDBBtn color="info" onClick={this.toggle(8)}>More Details</MDBBtn>
@@ -100,37 +100,47 @@ render() {
         this.state.arri.map(far =>{
             return(
               <div>
-              <MDBListGroup style={{ width: "22rem" }}key={far.id}>
+              {/* <MDBListGroup style={{ width: "22rem" }}key={far.id}>
                 <MDBListGroupItem>{far.id}</MDBListGroupItem>
                 <MDBListGroupItem>{far.description}</MDBListGroupItem>
                 <MDBListGroupItem>{far.price}</MDBListGroupItem>
                  <MDBListGroupItem>{far.status}</MDBListGroupItem>
                
-              </MDBListGroup>
-               
+              </MDBListGroup> */}
+          <div className="col-sm-10">
+              <h6>Asset Details..</h6>
+               <b>Asset ID: {far.id}</b><br/>
+               <b>BrandName: {far.brandName}</b><br/>
+               <b>Type: {far.type}</b><br/>
+               <b>Price: {far.price}</b><br/>
+               <b>Warranty Status : {far.warrantyStatus===1? <b>in warratty</b> : <b >out warratty</b>}</b><br/>
+               <b>Warranty <i>Expire Date</i> : {far.expireDate}</b><br/><br/>
+          </div>     
                <form >
 
 
  
 
 
-<div className="form-group">
-    {/* <label className="control-label col-sm-2" htmlFor="from">From:</label> */}
+ <div className="form-group">
+ {/* <label className="control-label col-sm-1" htmlFor="from">From:</label>  */}
     <div className="col-sm-10">
-    <MDBInput  type="date" label="From"  name='from'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              </div>
+    <h6>Asset Details..</h6>
+    <MDBInput  type="date"   name='to'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+     </div>
 </div>
 
 <div className="form-group">
-    
+<label className="control-label col-sm-2" htmlFor="from">To:</label> 
     <div className="col-sm-10">
     <MDBInput  type="date" label="TO"  name='to'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
               </div>
 </div>
 
 <div className="form-group">
-    
+
     <div className="col-sm-10">
+    <h6>Reason for request..</h6>
         <select className="form-control" id="reason" type="text" value={this.state.reason} name='reason' onChange={this.handleChange=this.handleChange.bind(this)}>
 
             <option disabled hidden value=''></option>
@@ -159,7 +169,7 @@ render() {
           } 
         </MDBModalBody>
         <MDBModalFooter>
-          <MDBBtn color="secondary" onClick={this.toggle(8)}>Close</MDBBtn>
+          
           <MDBBtn color="primary" onClick={this.PutReq=this.PutReq.bind(this)}>Request This</MDBBtn>
         </MDBModalFooter>
       </MDBModal>

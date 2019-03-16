@@ -66,25 +66,27 @@ console.log(this.state.arr);
     return ( 
         <div>
        <MDBTable >
-      <MDBTableHead color="black" textWhite>
-        <tr>
-        <th>Id</th>
-          <th>brandName</th>
-          <th>price</th>
-          <th>warrantyStatus</th>
-          <td>more..</td>
-        </tr>
-      </MDBTableHead>
+       <thead className="thead-dark">
+            <tr>
+              <th scope="col" className="text-center">ID</th>
+              <th scope="col" className="text-center">BRAND_NAME</th>
+              <th scope="col" className="text-center">PRICE</th>
+              <th scope="col" className="text-center">WARRANTY_STATUS</th>
+              <th scope="col" className="text-center"> </th>
+            </tr>
+            </thead>
+
+
       <MDBTableBody>
            {
                
          this.state.arr.map(ari =>{
           return(
             <tr key={ari.id}>
-         <td>{ari.id}</td>
-         <td>{ari.brandName}</td>
-         <td>{ari.price}</td>
-         <td>{ari.warrantyStatus}</td>
+         <td className="text-center">{ari.id}</td>
+         <td className="text-center">{ari.brandName}</td>
+         <td className="text-center">{ari.price}</td>
+         <td className="text-center">{ari.warrantyStatus}</td>
          <td><But val={ari} /> </td>
        </tr>
         
