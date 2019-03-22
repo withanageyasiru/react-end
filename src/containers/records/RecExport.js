@@ -1,5 +1,5 @@
 import React from 'react';
-import Export from '../../components/RecExport/Exports';
+import Export from '../../components/RecExport/Layout';
 
 // RecExport - export a customized records to a pdf file
 // For Admins (for now)

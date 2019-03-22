@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBRow , MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol  } from 'mdbreact';
 import axios from 'axios';
 import OwnRequests from '../components/AssetRequest/List';
+import OwnAssets from '../components/Breakdowns/Breakdown';
                 /* 
                     this class need 3 componenets 
                     if logged user is 
@@ -67,6 +68,18 @@ class Dashboard extends React.Component {
                                     </MDBCardBody>
                                 </MDBCard>
                              </MDBCol>
+
+                             <MDBCol>
+                                <MDBCard style={{ width: "50rem" }}>
+                                    {/* <MDBCardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" waves /> */}
+                                    <MDBCardBody>
+                                    <MDBCardTitle>OWN ASSET</MDBCardTitle>
+                                    <MDBCardText>
+                                        <OwnAssets type={true}/>
+                                    </MDBCardText>
+                                    </MDBCardBody>
+                                </MDBCard>
+                             </MDBCol>
                         </div>
                     );
                 case 1:
@@ -97,7 +110,6 @@ class Dashboard extends React.Component {
     render() {
         return (
             <div className="Dashboard text-center">
-            <i className="fa fa-home" />
                 <MDBRow>
                     <MDBCol className="py-5 my-5"></MDBCol>
                 </MDBRow>

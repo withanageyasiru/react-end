@@ -4,7 +4,10 @@ import Workbook from 'react-excel-workbook';
 import { Checkbox } from 'semantic-ui-react';
 // MDBBtn } from "mdbreact";
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol , MDBInput } from 'mdbreact';
-const OPTIONS = ["id", "type", "brandName"];
+const OPTIONS = ["assets.code", "assets.type", "assets.brandName",
+"assets.price","assets.warrantyStatus",'assets.assetStatus',
+'assets.availability',"assets.expireDate",
+"users.firstName","users.lastName","users.status","users.email"];
 
 
 
@@ -15,10 +18,20 @@ export default class Export extends Component {
             exportEnable: false,
             assets: [],
             selections: [],
+            count:0,
             lables: {
-                id: "ID",
-                type: " Asset Type",
-                brandName: "Brand Name"
+                'assets.code': "Asset Code",
+                'assets.type': " Asset Type",
+                'assets.brandName': "Brand Name",
+                'assets.price': "Price",
+                'assets.warrantyStatus': "Warranty Status",
+                'assets.assetStatus': "Asset Status",
+                'assets.availability': "Availability",
+                'assets.expireDate': "Warranty Expiry Date",
+                "users.firstName":"First Name",
+                "users.lastName":"last Name",
+                "users.status":"User Level",
+                "users.email":"email"
             },
             checkboxes: OPTIONS.reduce(
                 (options, option) => ({
@@ -132,28 +145,34 @@ export default class Export extends Component {
     renderExport() {
         if (this.state.exportEnable === true) {
             return (
-                <MDBCol>
-                    <MDBCard style={{ width: "22rem" }}>
+                <div>
 
-                        <MDBCardBody>
+                <div className="col-lg-6" ><MDBCol>
+                <MDBCard style={{ width: "22rem" }}>
 
-                            <MDBCardText>
+                    <MDBCardBody>
 
-                                <Workbook filename="example.xlsx" element={<MDBBtn color="primary" rounded>Export</MDBBtn>}>
-                                    <Workbook.Sheet data={this.state.assets} name="Sheet A">
+                        <MDBCardText>
 
-                                        {this.state.checkboxes[this.state.selections[0]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[0]]} value={this.state.selections[0]} /> : <></>}
-                                        {this.state.checkboxes[this.state.selections[1]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[1]]} value={this.state.selections[1]} /> : <></>}
-                                        {this.state.checkboxes[this.state.selections[2]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[2]]} value={this.state.selections[2]} /> : <></>}
+                            <Workbook filename="example.xlsx" element={<MDBBtn color="primary" rounded>Export</MDBBtn>}>
+                                <Workbook.Sheet data={this.state.assets} name="Sheet A">
 
-                                    </Workbook.Sheet>
-                                </Workbook>
-                            </MDBCardText>
+                                    {this.state.checkboxes[this.state.selections[0]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[0]]} value={this.state.selections[0]} /> : <></>}
+                                    {this.state.checkboxes[this.state.selections[1]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[1]]} value={this.state.selections[1]} /> : <></>}
+                                    {this.state.checkboxes[this.state.selections[2]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[2]]} value={this.state.selections[2]} /> : <></>}
 
-                        </MDBCardBody>
-                    </MDBCard>
-                </MDBCol>
+                                </Workbook.Sheet>
+                            </Workbook>
+                        </MDBCardText>
 
+                    </MDBCardBody>
+                </MDBCard>
+            </MDBCol></div>
+ 
+   
+                
+
+    </div>
 
             );
         }
@@ -173,19 +192,12 @@ export default class Export extends Component {
 
         return (
             <div>
-                <hr />
-
-                <div className="container">
-                    <div className="row mt-5">
-                        <div className="col-sm-12">
-
-
-
-                            <MDBCol>
-                                <MDBCard style={{ width: "30rem", paddingLeft:'50px' }}>
+                <MDBCol>
+                                <MDBCard style={{ width: "40rem", paddingLeft:'50px' }}>
 
                                     <MDBCardBody>
                                         <MDBCardTitle>Export Assets' Details</MDBCardTitle>
+                                        <hr/>
                                         <MDBCardText>
                                             <form onSubmit={this.handleFormSubmit}>
 
@@ -245,19 +257,8 @@ export default class Export extends Component {
 
                                     </MDBCardBody>
                                 </MDBCard>
-                            </MDBCol>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                {/*just use this code below,, can just import all the fields in the asset table..  */}
-
-            </div>
+                            </MDBCol></div>
+                       
 
         );
     }

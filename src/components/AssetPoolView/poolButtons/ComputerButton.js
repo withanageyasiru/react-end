@@ -131,7 +131,7 @@ render() {
  {/* <label className="control-label col-sm-1" htmlFor="from">From:</label>  */}
     <div className="col-sm-10">
     <h6>From</h6>
-    <MDBInput  type="date"   name='to'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+    <MDBInput  type="date"   name='from'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
      </div>
 </div>
 

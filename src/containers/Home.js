@@ -1,42 +1,31 @@
-import React from 'react';
-import {
-    MDBNavbar,
-    MDBNavbarBrand,
-    MDBCollapse,
-    MDBNavbarNav,
-    MDBNavbarToggler,
-    MDBNavItem,
-    MDBNavLink,
-    MDBMask,
-    MDBView,
-    MDBIcon
-} from 'mdbreact';
-import HomeRooutes from '../components/HomeRoutes';
-import MenuAssets from './MenuAssets';
-import MenuEmployees from './MenuEmployees';
-import MenuDepartments from './MenuDepartments';
-import MenuRecords from './MenuRecords';
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class Home extends React.Component {
+// e sure to include styles at some point, probably during your bootstraping
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import React from "react";
+import logo from "./logos.png";
+
+import HomeRoutes from '../components/HomeRoutes';
+
+
+class DoubleNavigationPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            collapse: false,
-            isWideEnough: false,
-            isOpen: false
+            toggleStateA: false,
+            breakWidth: 1300,
+            windowWidth: 0,
+            toggle: false,
+            // Props for user auth (from old app.js)
         };
-        this.onClick = this.onClick.bind(this);
     }
 
-    onClick() {
-        this.setState({
-            collapse: !this.state.collapse
-        });
+    componentDidMount() {
     }
 
-    toggleCollapse = () => {
-        this.setState({ isOpen: !this.state.isOpen });
+    componentWillUnmount() {
     }
 
     handleLogout = () => {
@@ -47,6 +36,25 @@ class Home extends React.Component {
         this.props.history.push("/login");
     }
 
+    handleClick = (selected) => {
+        this.props.history.push(selected);
+    }
+
+    //   renderBody(){
+    //     var divStyle = {
+    //         position: 'relative',
+    //        left: '300px',
+    //       };
+    //       return this.state.toggle== true ? <div style={divStyle}>Hello World!</div> : <div>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkdjf</div>;
+    //   }
+    
+    all = (this.props.levelAuth === 9);
+    admin = (this.props.levelAuth === 3);
+    depth = (this.props.levelAuth === 1);
+    finan = (this.props.levelAuth === 2);
+    emplo = (this.props.levelAuth === 0);
+
+
     render() {
         const childProps = {
             isAuth: this.props.isAuth,
@@ -54,50 +62,179 @@ class Home extends React.Component {
             accessToken: this.props.accessToken
         };
 
+        var Stylet = {
+            width: '240px',
+            height: '180px'
+        };
+
         return (
-            <div className="Home" >
-                <header>
- 
-                {/* rgba(0, 150, 136, 0.7) rgba-teal-strong */}
-                    
-                    <MDBNavbar className="z-depth-1-half" color="unique-color-dark" textWhite expand="md" fixed="top" >
-                        <MDBNavbarBrand href="/">
-                            <strong>SimCentric</strong>
-                        </MDBNavbarBrand>
-                        {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
-                        <MDBCollapse isOpen={this.state.collapse} navbar>
-                            <MDBNavbarNav light left>
-                                <MenuAssets levelAuth={this.props.levelAuth}/>
-                                <MenuEmployees levelAuth={this.props.levelAuth} />
-                                <MenuDepartments levelAuth={this.props.levelAuth} />
-                                <MenuRecords levelAuth={this.props.levelAuth} />
-                            </MDBNavbarNav>
-                            <MDBNavbarNav right>
-                                <MDBNavItem className="px-md-3">
-                                   
-                                </MDBNavItem>
-                                <MDBNavItem onClick={this.handleLogout} light className="px-lg-1">
-                                    <MDBNavLink to="#">
-                                        <MDBIcon icon="sign-out-alt" />
-                                        <strong> Logout</strong>
-                                    </MDBNavLink>
-                                </MDBNavItem>
-                            </MDBNavbarNav>
-                        </MDBCollapse>
-                    </MDBNavbar>
-                </header>
-                
-                <main className="pt-5">
-                    <MDBView src="3" alt="background image">
-                       
-                        <MDBMask className ="pt-4 px-1 px-xl-5" color=" mdb-color darken-3" >
-                            <HomeRooutes childProps={childProps} />
-                        </MDBMask>
-                    </MDBView>
-                </main>
+        <div className="Home">
+            <SideNav
+                expanded={true}
+                onSelect={(selected) => {
+                    console.log(selected);
+                    this.handleClick(selected);
+                    //this.renderBody();
+                }}
+            >
+
+                {/* <img  src={logo} style={{ Stylet}} alt="fireSpot"/> */}
+                <SideNav.Nav defaultSelected="#" >
+                    <img src={logo} alt="SimCentric" />
+                    <NavItem 
+                        eventKey="#"
+                        expanded={true}
+                        hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
+                    >
+                        <NavIcon>
+                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            Assets
+                        </NavText>
+                        <NavItem
+                            eventKey="/home/asset_owned"
+                            hidden={!(this.emplo || this.all)}
+                        >
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >View Owned Assets</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem
+                            eventKey="/home/asset_pool"
+                            hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
+                        >
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >View Assets Pool</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem
+                            eventKey="/home/asset_request"
+                            hidden={!(this.emplo || this.all)}
+                        >
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Request Asset</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/asset_breakdown">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Report Breakdown</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/asset_break_manage">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Manage Breakdown</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/asset_transfer">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Transfer Assets</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/asset_manage">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Manage Assets</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/asset_category">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Manage Asset Categories</div>
+                            </NavText>
+                        </NavItem>
+                    </NavItem>
+
+
+                    <NavItem eventKey="Employee" expanded={true}>
+                        <NavIcon>
+                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            Employees
+                        </NavText>
+                        <NavItem eventKey="/home/emp_details">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Employee Details</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/emp_assets">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Employee Assets</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/emp_manage">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Manage Employees</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/emp_requests">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Asset Requests</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/emp_resignation">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Resignation</div>
+                            </NavText>
+                        </NavItem>
+                    </NavItem>
+
+
+                    <NavItem eventKey="Departments" expanded={true}>
+                        <NavIcon>
+                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            Departments
+                        </NavText>
+                        <NavItem eventKey="/home/dept_details">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Department Details</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/dept_manage">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Manage Departments</div>
+                            </NavText>
+                        </NavItem>
+                    </NavItem>
+
+
+                    <NavItem eventKey="Records" expanded={true}>
+                        <NavIcon>
+                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            Records
+                    </NavText>
+                        <NavItem eventKey="/home/record_history">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Asset History</div>
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/home/record_export">
+                            <NavText>
+                                <div style={{ paddingLeft: '50px' }} >Export Records</div>
+                            </NavText>
+                        </NavItem>
+                    </NavItem>
+                    <hr />
+                    <NavItem eventKey="#" onClick={this.handleLogout}>
+                        <NavIcon>
+                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            Log Out
+                    </NavText>
+                    </NavItem>
+                </SideNav.Nav>
+            </SideNav>
+            
+            <div className="MainFrame">
+                <HomeRoutes childProps={childProps} />
             </div>
-        )
+        </div>
+        );
     }
 }
 
-export default Home;
+export default DoubleNavigationPage;
