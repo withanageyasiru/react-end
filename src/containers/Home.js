@@ -18,6 +18,7 @@ class DoubleNavigationPage extends React.Component {
             breakWidth: 1300,
             windowWidth: 0,
             toggle: false,
+            defaultExpand:true
             // Props for user auth (from old app.js)
         };
     }
@@ -79,15 +80,16 @@ class DoubleNavigationPage extends React.Component {
             >
 
                 {/* <img  src={logo} style={{ Stylet}} alt="fireSpot"/> */}
+                
                 <SideNav.Nav defaultSelected="#" >
                     <img src={logo} alt="SimCentric" />
                     <NavItem 
-                        eventKey="#"
+                        eventKey="Asset"
                         expanded={true}
                         hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
                     >
                         <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                            <i className="fas fa-laptop-code" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Assets
@@ -144,9 +146,9 @@ class DoubleNavigationPage extends React.Component {
                     </NavItem>
 
 
-                    <NavItem eventKey="Employee" expanded={true}>
+                    <NavItem eventKey="Employee" expanded={false}>
                         <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                            <i className="fas fa-user-tie" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Employees
@@ -179,9 +181,9 @@ class DoubleNavigationPage extends React.Component {
                     </NavItem>
 
 
-                    <NavItem eventKey="Departments" expanded={true}>
+                    <NavItem eventKey="Departments" expanded={false}>
                         <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                            <i className="fas fa-building" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Departments
@@ -199,9 +201,9 @@ class DoubleNavigationPage extends React.Component {
                     </NavItem>
 
 
-                    <NavItem eventKey="Records" expanded={true}>
+                    <NavItem eventKey="Records" expanded={false}>
                         <NavIcon>
-                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                            <i className="fas fa-file-medical-alt" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Records
@@ -220,7 +222,7 @@ class DoubleNavigationPage extends React.Component {
                     <hr />
                     <NavItem eventKey="#" onClick={this.handleLogout}>
                         <NavIcon>
-                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                            <i className="fas fa-power-off" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Log Out

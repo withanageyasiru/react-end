@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput } from 'mdbreact';
 import Axios from 'axios';
 import EmpByAssetExport from "./AllAssetsExport";
-import AssetExprert from "./AssetExport";
+import AssetExprert from "./AssetExportByUser";
 class Tess extends Component {
     constructor(props)   
     {

@@ -138,7 +138,7 @@ class NotiMsg extends Component {
     return (
       <div>
         <table className="table">
-          <thead className="thead-dark">
+          <thead className="bg-info">
             <tr>
               <th scope="col" className = "text-center">DATE</th>
                <th scope="col" className = "text-center">REQUESTED EMPLOYEE</th>

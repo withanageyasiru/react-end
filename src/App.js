@@ -9,7 +9,7 @@ class App extends React.Component {
         this.state = {
             isAuthenticated: false,
             isAuthenticating: true,
-            accessToken: "b",
+            accessToken: "",
             levelOfAuthentication: 9
         };
     }

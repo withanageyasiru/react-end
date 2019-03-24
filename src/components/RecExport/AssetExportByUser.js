@@ -3,9 +3,12 @@ import axios from 'axios';
 import Workbook from 'react-excel-workbook';
 import { Checkbox } from 'semantic-ui-react';
 // MDBBtn } from "mdbreact";
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol , MDBInput } from 'mdbreact';
-const OPTIONS = ["assets.code", "assets.type", "assets.brandName",
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol , MDBInput ,MDBRow , MDBContainer} from 'mdbreact';
+const OPTIONS1 = ["assets.code", "assets.type", "assets.brandName","departments.name",
 "assets.price","assets.warrantyStatus",'assets.assetStatus',
+];
+
+const OPTIONS2 = [
 'assets.availability',"assets.expireDate",
 "users.firstName","users.lastName","users.status","users.email"];
 
@@ -23,6 +26,7 @@ export default class Export extends Component {
                 'assets.code': "Asset Code",
                 'assets.type': " Asset Type",
                 'assets.brandName': "Brand Name",
+                'departments.name': "Department",
                 'assets.price': "Price",
                 'assets.warrantyStatus': "Warranty Status",
                 'assets.assetStatus': "Asset Status",
@@ -32,8 +36,17 @@ export default class Export extends Component {
                 "users.lastName":"last Name",
                 "users.status":"User Level",
                 "users.email":"email"
+
             },
-            checkboxes: OPTIONS.reduce(
+            checkboxes1: OPTIONS1.reduce(
+                (options, option) => ({
+                    ...options,
+                    [option]: false
+                }),
+                {}
+            ),
+
+            checkboxes2: OPTIONS2.reduce(
                 (options, option) => ({
                     ...options,
                     [option]: false
@@ -51,7 +64,8 @@ export default class Export extends Component {
         this.selectAllCheckboxes = this.selectAllCheckboxes.bind(this);
         this.selectAll = this.selectAll.bind(this);
         this.deselectAll = this.deselectAll.bind(this);
-        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+        this.handleCheckboxChange1 = this.handleCheckboxChange1.bind(this);
+        this.handleCheckboxChange2 = this.handleCheckboxChange2.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.export = this.export.bind(this);
         this.renderExport = this.renderExport.bind(this);
@@ -60,15 +74,24 @@ export default class Export extends Component {
 
 
     selectAllCheckboxes(isSelected) {
-        Object.keys(this.state.checkboxes).forEach(checkbox => {
+        Object.keys(this.state.checkboxes1).forEach(checkbox => {
             this.setState(prevState => ({
-                checkboxes: {
-                    ...prevState.checkboxes,
+                checkboxes1: {
+                    ...prevState.checkboxes1,
+                    [checkbox]: isSelected
+                }
+            }));
+        });
+        Object.keys(this.state.checkboxes2).forEach(checkbox => {
+            this.setState(prevState => ({
+                checkboxes2: {
+                    ...prevState.checkboxes2,
                     [checkbox]: isSelected
                 }
             }));
         });
     }
+
 
     selectAll() { this.selectAllCheckboxes(true); }
 
@@ -79,18 +102,38 @@ export default class Export extends Component {
         });
     }
 
-    async handleCheckboxChange(changeEvent , data) {
+    async handleCheckboxChange1(changeEvent , data) {
         console.log('event' ,changeEvent );
         console.log('data' ,data );
         const { name } = data;
 
         await this.setState(prevState => ({
-            checkboxes: {
-                ...prevState.checkboxes,
-                [name]: !prevState.checkboxes[name]
+            checkboxes1: {
+                ...prevState.checkboxes1,
+                [name]: !prevState.checkboxes1[name]
             }
 
         }));
+        
+        this.setState({
+            exportEnable: false
+        });
+
+    }
+
+    async handleCheckboxChange2(changeEvent , data) {
+        console.log('event' ,changeEvent );
+        console.log('data' ,data );
+        const { name } = data;
+
+        await this.setState(prevState => ({
+            checkboxes2: {
+                ...prevState.checkboxes2,
+                [name]: !prevState.checkboxes2[name]
+            }
+
+        }));
+        
         this.setState({
             exportEnable: false
         });
@@ -193,7 +236,7 @@ export default class Export extends Component {
         return (
             <div>
                 <MDBCol>
-                                <MDBCard style={{ width: "40rem", paddingLeft:'50px' }}>
+                                <MDBCard style={{ width: "40rem", paddingLeft:'25px' }}>
 
                                     <MDBCardBody>
                                         <MDBCardTitle>Export Assets' Details</MDBCardTitle>
@@ -201,31 +244,38 @@ export default class Export extends Component {
                                         <MDBCardText>
                                             <form onSubmit={this.handleFormSubmit}>
 
-                                                <>
+                                            <MDBContainer>
+                                            <MDBRow>
+                                                <MDBCol size="6">
                                                     {
-                                                        Object.keys(this.state.checkboxes).map(day => (
+                                                        Object.keys(this.state.checkboxes1).map(day => (
                                                             <React.Fragment key={day}>
                                                                 <div className="form-check">
 
-                                                                    <p>  
-                                                                        {/* <MDBInput name={day}  checked={this.state.checkboxes[day]}  type="checkbox"  onChange={this.handleCheckboxChange}/> */}
-                                                                        <Checkbox toggle name={day} label={this.state.lables[day]} type="checkbox" checked={this.state.checkboxes[day]}   onChange={this.handleCheckboxChange} /> 
-                                                                        {
-                                                                        /* <input
-                                                                            type="checkbox"
-                                                                            name={day}
-                                                                            checked={this.state.checkboxes[day]}
-                                                                            onChange={this.handleCheckboxChange}
-                                                                        /> */
-                                                                        }
-                                                                        
+                                                                    <p>  <Checkbox toggle name={day} label={this.state.lables[day]} type="checkbox" checked={this.state.checkboxes1[day]}   onChange={this.handleCheckboxChange1} /> 
                                                                     </p>
                                                                 </div>
                                                             </React.Fragment>
                                                         ))
                                                     }
-                                                </>
+                                                </MDBCol>
+                                                <MDBCol size="6">
+                                                    {
+                                                        Object.keys(this.state.checkboxes2).map(day => (
+                                                            <React.Fragment key={day}>
+                                                                <div className="form-check">
 
+                                                                    <p>  
+                                                                         <Checkbox toggle name={day} label={this.state.lables[day]} type="checkbox" checked={this.state.checkboxes2[day]}   onChange={this.handleCheckboxChange2} /> 
+  
+                                                                    </p>
+                                                                </div>
+                                                            </React.Fragment>
+                                                        ))
+                                                    }
+                                                    </MDBCol>
+                                            </MDBRow>
+                                            </MDBContainer>
 
                                                 <div className="form-group mt-2">
                                                     <button

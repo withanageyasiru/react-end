@@ -20,7 +20,8 @@ export default class Export extends Component {
         this.state = {
             exportEnable: false,
             assets: [],
-            selections: [],
+            selections1: [],
+            selections2: [],
             count:0,
             lables: {
                 'assets.code': "Asset Code",
@@ -142,20 +143,28 @@ export default class Export extends Component {
 
     async   handleFormSubmit(formSubmitEvent) {
 
-        var temArr = [];
+        var temArr1 = [];
+        var temArr2 = [];
 
         formSubmitEvent.preventDefault();
-        await Object.keys(this.state.checkboxes)
-            .filter(checkbox => this.state.checkboxes[checkbox])
+        await Object.keys(this.state.checkboxes1)
+            .filter(checkbox => this.state.checkboxes1[checkbox])
             .forEach(checkbox => {
-                temArr.push(checkbox);
-                console.log(checkbox, this.state.checkboxes);
+                temArr1.push(checkbox);
+                console.log(checkbox, this.state.checkboxes1);
+            });
+        await Object.keys(this.state.checkboxes2)
+            .filter(checkbox => this.state.checkboxes2[checkbox])
+            .forEach(checkbox => {
+                temArr2.push(checkbox);
+                console.log(checkbox, this.state.checkboxes2);
             });
         this.setState({
-            selections: temArr,
+            selections1: temArr1,
+            selections2: temArr2,
             exportEnable: true
         })
-        if (temArr === undefined || temArr.length == 0) {
+        if ((temArr1 === undefined || temArr1.length == 0) && (temArr2 === undefined || temArr2.length == 0)) {
             this.setState({
                 exportEnable: false
             });
@@ -200,9 +209,13 @@ export default class Export extends Component {
                             <Workbook filename="example.xlsx" element={<MDBBtn color="primary" rounded>Export</MDBBtn>}>
                                 <Workbook.Sheet data={this.state.assets} name="Sheet A">
 
-                                    {this.state.checkboxes[this.state.selections[0]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[0]]} value={this.state.selections[0]} /> : <></>}
-                                    {this.state.checkboxes[this.state.selections[1]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[1]]} value={this.state.selections[1]} /> : <></>}
-                                    {this.state.checkboxes[this.state.selections[2]] === true ? <Workbook.Column label={this.state.lables[this.state.selections[2]]} value={this.state.selections[2]} /> : <></>}
+                                    {this.state.checkboxes1[this.state.selections1[0]] === true ? <Workbook.Column label={this.state.lables[this.state.selections1[0]]} value={this.state.selections1[0]} /> : <></>}
+                                    {this.state.checkboxes1[this.state.selections1[1]] === true ? <Workbook.Column label={this.state.lables[this.state.selections1[1]]} value={this.state.selections1[1]} /> : <></>}
+                                    {this.state.checkboxes1[this.state.selections1[2]] === true ? <Workbook.Column label={this.state.lables[this.state.selections1[2]]} value={this.state.selections1[2]} /> : <></>}
+
+                                    {this.state.checkboxes2[this.state.selections2[0]] === true ? <Workbook.Column label={this.state.lables[this.state.selections2[0]]} value={this.state.selections2[0]} /> : <></>}
+                                    {this.state.checkboxes2[this.state.selections2[1]] === true ? <Workbook.Column label={this.state.lables[this.state.selections2[1]]} value={this.state.selections2[1]} /> : <></>}
+                                    {this.state.checkboxes2[this.state.selections2[2]] === true ? <Workbook.Column label={this.state.lables[this.state.selections2[2]]} value={this.state.selections2[2]} /> : <></>}
 
                                 </Workbook.Sheet>
                             </Workbook>
