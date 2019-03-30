@@ -234,7 +234,7 @@ class DoubleNavigationPage extends React.Component {
             <div className="MainFrame">
                 <HomeRoutes childProps={childProps} />
             </div>
-        </div>
+      </div>
         );
     }
 }

@@ -50,6 +50,7 @@ class Login extends React.Component {
                 this.props.setAuth(true);
                 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
                 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.access_token;
+                localStorage.setItem('Authorization' , 'Bearer ' + res.data.access_token)
 
                 Axios.get("http://104.248.24.192:8080/api/auth/user")
                 .then((res) => {

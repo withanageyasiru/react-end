@@ -15,7 +15,7 @@ class NotiMsg extends Component {
       rows: [],
       assets: [],
       key : "",
-      dipHead : "kasun",
+      dipHead : "",
       User_id : 0,
       User_status : 1
     }; // this is where we are connecting to with sockets

@@ -69,9 +69,9 @@ console.log(this.state.arr);
        <thead className="thead-dark">
             <tr>
               <th scope="col" className="text-center">ID</th>
-              <th scope="col" className="text-center">BRAND_NAME</th>
+              <th scope="col" className="text-center">BRAND NAME</th>
               <th scope="col" className="text-center">PRICE</th>
-              <th scope="col" className="text-center">WARRANTY_STATUS</th>
+              <th scope="col" className="text-center">WARRANTY STATUS</th>
               <th scope="col" className="text-center"> </th>
             </tr>
             </thead>

@@ -17,7 +17,12 @@ class App extends React.Component {
     componentDidMount() {
         // access token verification goes here:
         // ==== ==== ==== ====
+        this.setState({
+            accessToken : localStorage.getItem('Authorization'),
+        })
+        
         if (this.state.accessToken !== null && this.state.accessToken !== "") {
+            console.log('this is for test', this.state.accessToken);
             this.setState({ isAuthenticated: true });
         }
         // if (this.props.cookies.get('auth')) {

@@ -9,8 +9,8 @@ class NotiMsg extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //endpoint: "http://localhost:3001/",
-      endpoint: "http://104.248.24.192:3001/",
+      endpoint: "http://localhost:8000/",
+      //endpoint: "http://104.248.24.192:3001/",
       message: [],
       rows: [],
       assets: [],
@@ -32,6 +32,11 @@ class NotiMsg extends Component {
 
   componentDidMount() {
 
+    //todo
+    
+  }
+
+  functionSetBreakdown(){
     
     var url = "/breakdown/store";
 
@@ -43,7 +48,6 @@ class NotiMsg extends Component {
         
       });
 
-    
   }
 
  
@@ -67,7 +71,7 @@ class NotiMsg extends Component {
             </tr>
           </thead>
 
-          <tbody>
+          {/* <tbody>
             {console.log(this.state.assets)}
             {this.state.assets.map((item, id) => {
               return (
@@ -76,9 +80,7 @@ class NotiMsg extends Component {
                   <td className = "text-center">
                     {item.user.firstName} {item.user.lastName}
                   </td>
-                  {/* <td className = "text-center">kasun</td> */}
                   {this.tableDataRender.call(this,item)}
-                  {/* <td  className = "text-center"> {item.head.firstName} </td> */}
                   <td className = "text-center">{item.asset.type}</td>
                   <td className = "text-center">{item.asset.brandName}</td>
                   <td>
@@ -87,7 +89,7 @@ class NotiMsg extends Component {
                 </tr>
               );
             })}
-          </tbody>
+          </tbody> */}
         </table>
         {/* <button onClick={this.send} >connect</button> */}
       </div>

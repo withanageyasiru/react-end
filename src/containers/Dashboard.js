@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBRow , MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol  } from 'mdbreact';
 import axios from 'axios';
 import OwnRequests from '../components/AssetRequest/List';
-import OwnAssets from '../components/Breakdowns/Breakdown';
+import OwnAssets from '../components/EmpOwnAsset/EmpOwnAsset';
                 /* 
                     this class need 3 componenets 
                     if logged user is 
