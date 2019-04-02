@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import { MDBPagination, MDBPageItem, MDBNavLink, MDBCol, MDBRow } from 'mdbreact';
+import { MDBPagination, MDBPageItem, MDBNavLink, MDBCol, MDBRow,MDBBtn } from 'mdbreact';
 import AuthRoute from '../../components/AuthRoute';
 import DeptAdd from '../../components/DeptManage/DeptAdd';
 import DeptEdit from '../../components/DeptManage/DeptEdit';
@@ -23,26 +23,24 @@ class DeptManage extends React.Component {
                         <MDBPagination className="d-flex d-sm-inline-flex justify-content-center mb-1 font-weight-bold">
                             <MDBPageItem>
                                 <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
+                                  
                                     to="/home/dept_manage/add"
                                 >
-                                    Create
+                                <MDBBtn outline color="light-green lighten-1"> Create</MDBBtn>
                                 </MDBNavLink>
                             </MDBPageItem>
                             <MDBPageItem>
                                 <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
                                     to="/home/dept_manage/remove"
                                 >
-                                    Delete
+                                <MDBBtn outline color="light-green lighten-1">Delete</MDBBtn> 
                                 </MDBNavLink>
                             </MDBPageItem>
                             <MDBPageItem>
                                 <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
                                     to="/home/dept_manage/edit"
                                 >
-                                    Update
+                                <MDBBtn outline color="light-green lighten-1">Update</MDBBtn> 
                                 </MDBNavLink>
                             </MDBPageItem>
                         </MDBPagination>

@@ -335,6 +335,7 @@ export default class Store2 extends Component {
 
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
+                <hr/>
             </div>
         );
     }

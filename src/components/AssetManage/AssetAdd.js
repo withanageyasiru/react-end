@@ -17,52 +17,78 @@ import compo from "./addAssetx.js/addcomponents";
 import ups from "./addAssetx.js/addups";
 import oth from "./addAssetx.js/addothers";
 import AuthRoute from "../../components/AuthRoute";
+import { Menu } from 'semantic-ui-react';
 
 
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Tess extends Component {
+  state = {  }
+  handleItemClick = (e, { name }) => {
+      this.props.history.push(name)
+      this.setState({ activeItem: name })
+  }
+
   render() {
-    return (
+
+    const { activeItem } = this.state 
+    return(
       <div className="AssetEdit">
         <MDBContainer>
+        <Menu className="ui pointing four item menu">
+                        <Menu.Item
+                        name="/home/asset_manage/add/computers"
+                        active={activeItem === "/home/asset_manage/add/computers"}
+                        onClick={this.handleItemClick}
+                        >
+                        Computers
+                        </Menu.Item>
+
+                        {/* <Menu.Item 
+                        name="/home/asset_manage/desktops" 
+                        active={activeItem === "/home/asset_manage/desktops"} 
+                        onClick={this.handleItemClick}>
+                        Desktops
+                        </Menu.Item>
+                        
+                        <Menu.Item 
+                        name="/home/asset_manage/laptops"
+                        active={activeItem === "/home/asset_manage/laptops"} 
+                        onClick={this.handleItemClick}>
+                        Laptops
+                        </Menu.Item> */}
+
+                        <Menu.Item 
+                        name="/home/asset_manage/add/ups"
+                        active={activeItem === "/home/asset_manage/add/ups"} 
+                        onClick={this.handleItemClick}>
+                        UPS
+                        </Menu.Item>
+
+                        <Menu.Item 
+                        name="/home/asset_manage/add/components"
+                        active={activeItem === "/home/asset_manage/add/components"} 
+                        onClick={this.handleItemClick}>
+                        Components
+                        </Menu.Item>
+                        
+
+                        <Menu.Item 
+                        name="/home/asset_manage/add/others"
+                        active={activeItem === "/home/asset_manage/add/others"} 
+                        onClick={this.handleItemClick}>
+                        Others
+                        </Menu.Item>
+
+                    </Menu>
+          
           <MDBRow>
             <MDBCol md="6">
               <form>
                 <p className="h5 text-center ">Add assets</p>
                 <div className="grey-text">
-                  <MDBDropdown>
-                    <MDBDropdownToggle caret color="blue">
-                      choose add type
-                    </MDBDropdownToggle>
-                    <MDBDropdownMenu right basic>
-
-                      <MDBDropdownItem> 
-                        <Link to="/home/asset_manage/add/computers">
-                       
-                        Computers
-                        </Link>
-                      </MDBDropdownItem>
-                      <MDBDropdownItem> 
-                        <Link to="/home/asset_manage/add/components">
-                        Components
-                        </Link>
-                      </MDBDropdownItem>
-                      <MDBDropdownItem> 
-                        <Link to="/home/asset_manage/add/ups">
-                        Ups
-                        </Link>
-                      </MDBDropdownItem>
-                      <MDBDropdownItem> 
-                        <Link to="/home/asset_manage/add/others">
-                        Others
-
-                        </Link>
-                      </MDBDropdownItem>
-
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
+                  
                   {/* <Route  path="/home/asset_manage/add/computers" component={com} />  */}
                   <div scrollY>
                     <AuthRoute

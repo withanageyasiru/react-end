@@ -14,12 +14,16 @@ class App extends React.Component {
         };
     }
 
+    UNSAFE_componentWillMount() {
+        this.setState({
+            accessToken : localStorage.getItem('Authorization')
+        })
+        console.log(localStorage.getItem('Authorization'));
+}
+
     componentDidMount() {
         // access token verification goes here:
         // ==== ==== ==== ====
-        this.setState({
-            accessToken : localStorage.getItem('Authorization'),
-        })
         
         if (this.state.accessToken !== null && this.state.accessToken !== "") {
             console.log('this is for test', this.state.accessToken);

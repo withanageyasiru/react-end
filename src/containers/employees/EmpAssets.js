@@ -5,34 +5,41 @@ import AuthRoute from '../../components/AuthRoute';
 import Abc from '../../components/EmpAssets/byid';
 import Def from '../../components/EmpAssets/bydepid';
 import React, { Component } from 'react';
+import { Menu } from 'semantic-ui-react'
+
 class Assetspp extends Component {
     state = {  }
-    render() { 
-        return (  <div>
+    handleItemClick = (e, { name }) => {
+      this.props.history.push(name)
+      this.setState({ activeItem: name })
+  }
+
+    render() {
+
+      const { activeItem } = this.state 
+      return(
+      <div>
+      <MDBContainer>
+          <Menu className="ui pointing two item menu">
+            <Menu.Item
+              name="/home/emp_assets/id"
+              active={activeItem === "/home/emp_assets/id"}
+              onClick={this.handleItemClick}
+            >
+            </Menu.Item>
+
+            <Menu.Item 
+              name="/home/emp_assets/depid" 
+              active={activeItem === "/home/emp_assets/depid"} 
+              onClick={this.handleItemClick}>
+            </Menu.Item>
+          </Menu>
         
-            <MDBContainer>
-              <MDBDropdown>
-                <MDBDropdownToggle caret color="primary">
-                  choose
-                </MDBDropdownToggle>
-                <MDBDropdownMenu basic>
-                  <MDBDropdownItem ><Link to="/home/emp_assets/id">ID</Link></MDBDropdownItem>
-                  <MDBDropdownItem ><Link to="/home/emp_assets/depid">Department ID</Link></MDBDropdownItem>
-                  {/* <MDBDropdownItem> 
-                        <Link to="/home/emp_assets/id">
-                        ID
-                        </Link>
-                      </MDBDropdownItem>
-                      <MDBDropdownItem> 
-                        <Link to="/home/emp_assets/depid">
-                        Department ID
-                        </Link>
-                      </MDBDropdownItem> */}
-                  
-                </MDBDropdownMenu>
-              </MDBDropdown>
+         
+            
               <Switch>
                 
+                <AuthRoute exact path="/home/emp_assets/" component={Abc} props={this.props}/>
                 <AuthRoute path="/home/emp_assets/id" component={Abc} props={this.props}/>
                 <AuthRoute exact path="/home/emp_assets/depid" component={Def} props={this.props} />
                 

@@ -1,53 +1,58 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import { MDBPagination, MDBPageItem, MDBNavLink, MDBCol, MDBRow } from 'mdbreact';
+import { MDBContainer ,MDBPagination, MDBPageItem, MDBNavLink, MDBCol, MDBRow ,MDBBtn} from 'mdbreact';
 import AuthRoute from '../../components/AuthRoute';
 import AssetAdd from '../../components/AssetManage/AssetAdd';
 import AssetEdit from '../../components/AssetManage/AssetEdit';
 import AssetRem from '../../components/AssetManage/AssetRem';
+import { Menu } from 'semantic-ui-react';
 
 // AssetManage - add/remove/edit assets
 // For Finance
 class AssetManage extends React.Component {
+    state = {  }
+    handleItemClick = (e, { name }) => {
+        this.props.history.push(name)
+        this.setState({ activeItem: name })
+    }
+
     render() {
-        return (
+
+      const { activeItem } = this.state 
+      return(
+          <MDBContainer>
             <div className="AssetManage">
+
+            <Menu className="ui pointing three item menu">
+                        <Menu.Item
+                        name="/home/asset_manage/add"
+                        active={activeItem === "/home/asset_manage/add"}
+                        onClick={this.handleItemClick}
+                        >
+                        Create
+                        </Menu.Item>
+
+                        <Menu.Item 
+                        name="/home/asset_manage/remove"
+                        active={activeItem === "/home/asset_manage/remove"} 
+                        onClick={this.handleItemClick}>
+                        Delete
+                        </Menu.Item>
+                        
+                        <Menu.Item 
+                        name="/home/asset_manage/edit"
+                        active={activeItem === "/home/asset_manage/edit"} 
+                        onClick={this.handleItemClick}>
+                        Update
+                        </Menu.Item>
+                    </Menu>
                 {/* Your component code goes in components under 
                     src/components/AssetManage directory */}
                 {/* To see further instructions on how to add components,
                     routes inside this component view CONTRIBUTING.md */}
                 {/* Feel free to delete these comments once your component
                     is succesfully implemented to the system */}
-                <MDBRow>
-                    <MDBCol>
-                        <MDBPagination className="d-flex d-sm-inline-flex justify-content-center mb-1 font-weight-bold">
-                            <MDBPageItem>
-                                <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
-                                    to="/home/asset_manage/add"
-                                >
-                                    Create
-                                </MDBNavLink>
-                            </MDBPageItem>
-                            <MDBPageItem>
-                                <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
-                                    to="/home/asset_manage/remove"
-                                >
-                                    Delete
-                                </MDBNavLink>
-                            </MDBPageItem>
-                            <MDBPageItem>
-                                <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
-                                    to="/home/asset_manage/edit"
-                                >
-                                    Update
-                                </MDBNavLink>
-                            </MDBPageItem>
-                        </MDBPagination>
-                    </MDBCol>
-                </MDBRow>
+               
                 <hr />
                 <div className="AssetManageContent">
                     <Switch>
@@ -57,6 +62,7 @@ class AssetManage extends React.Component {
                     </Switch>
                 </div>
             </div>
+            </MDBContainer>
         )
     }
 }

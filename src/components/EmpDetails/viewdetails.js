@@ -70,19 +70,28 @@ class Assetsadd extends Component {
         return ( 
              
             <MDBContainer>
+            <form>
+            <p className="h5 text-left mb-4" style={{textAlign: "left"}}>View user details..</p>
       <MDBRow>
-        <MDBCol md="6">
-          <form>
-            <p className="h5 text-center mb-4">View user details..</p>
-            <div className="grey-text">
+        <MDBCol md='4'>
+         <div className="grey-text">
             
-            <MDBInput  type="number" label="User Id"  name='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-           
-            <MDBBtn outline color="secondary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
-                Search.. <MDBIcon far icon="paper-plane" className="ml-1" />
-              </MDBBtn>
-            <MDBTable>
-      <MDBTableHead color="primary-color" textWhite>
+            <MDBInput  type="number" label="User Id"  name='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />&nbsp;
+            </div>
+            </MDBCol>
+            <MDBCol md='6'>
+       
+            <MDBBtn outline color="light-green lighten-1" onClick={this.handleSubmit=this.handleSubmit.bind(this)}> Search..
+               <MDBIcon far icon="paper-plane" className="ml-1" />
+               </MDBBtn>
+               
+               </MDBCol>
+          </MDBRow>
+          </form>
+           <hr/>
+        <MDBTable striped responsive>
+        <MDBTableHead>
+      {/* <MDBTableHead color="primary-color" textWhite> */}
         <tr>
           <th>ID</th>
           <th>FirstName</th>
@@ -108,11 +117,8 @@ class Assetsadd extends Component {
            ) }  
       </MDBTableBody>
     </MDBTable>
-             </div>
-            
-          </form>
-        </MDBCol>
-      </MDBRow>
+             
+     
     </MDBContainer>
          );
     }

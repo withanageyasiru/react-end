@@ -34,6 +34,7 @@ class DoubleNavigationPage extends React.Component {
         // ==== ==== ==== ====
         this.props.setToken("");
         // ==== ==== ==== ====
+        localStorage.clear();
         this.props.history.push("/login");
     }
 
@@ -231,7 +232,7 @@ class DoubleNavigationPage extends React.Component {
                 </SideNav.Nav>
             </SideNav>
             
-            <div className="MainFrame">
+            <div className="MainFrame" style={{ paddingLeft:'300px',paddingTop:'50px'}}>
                 <HomeRoutes childProps={childProps} />
             </div>
       </div>

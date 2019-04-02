@@ -97,11 +97,11 @@ class Tess extends Component {
             
              
               
+              <MDBBtn outline color="info" onClick={this.handleSubmit=this.handleSubmit.bind(this)}>Update<MDBIcon far icon="paper-plane" className="ml-1" /></MDBBtn> 
               
-              
-              <MDBBtn outline color="secondary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
+              {/* <MDBBtn outline color="secondary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
                 Send <MDBIcon far icon="paper-plane" className="ml-1" />
-              </MDBBtn>
+              </MDBBtn> */}
               
            
               </MDBCol>
