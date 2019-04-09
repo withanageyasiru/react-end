@@ -10,11 +10,13 @@ class App extends React.Component {
             isAuthenticated: false,
             isAuthenticating: true,
             accessToken: "",
-            levelOfAuthentication: 9
+            levelOfAuthentication: 9 ,
+            baseUrl : "http://127.0.0.1:8000/"
         };
     }
 
     UNSAFE_componentWillMount() {
+        localStorage.setItem('baseUrl' , this.state.baseUrl)
         this.setState({
             accessToken : localStorage.getItem('Authorization')
         })
