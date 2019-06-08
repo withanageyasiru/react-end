@@ -10,7 +10,7 @@ class NotiMsg extends Component {
     super(props);
     this.state = {
       //endpoint: "http://localhost:3001/",
-      endpoint: "http://104.248.24.192:3001/",
+      endpoint: localStorage.getItem("nodeUrl") ,
       message: [],
       rows: [],
       assets: [],
@@ -38,7 +38,7 @@ class NotiMsg extends Component {
   componentDidMount() {
 
     
-    var url = "http://104.248.24.192:8080/api/auth/user";
+    var url = localStorage.getItem("baseUrl") + "api/auth/user";
 
     axios.get(url, {
       notiId: this.state.notiId,
@@ -52,8 +52,8 @@ class NotiMsg extends Component {
         })
         if (this.state.User_status===1) { this.setState({ key : 'assetreq'})}
         if (this.state.User_status===3) { this.setState({ key : 'assetreq_it'})}
-        if(this.state.User_status===1){url = "http://104.248.24.192:8080/api/auth/showreq";}
-        if(this.state.User_status===3){url = "http://104.248.24.192:8080/api/auth/showreqforit";}
+        if(this.state.User_status===1){url = localStorage.getItem("baseUrl") + "api/auth/showreq";}
+        if(this.state.User_status===3){url = localStorage.getItem("baseUrl") + "api/auth/showreqforit";}
         
         axios.get(url, {
           notiId: this.state.notiId,
@@ -138,7 +138,7 @@ class NotiMsg extends Component {
     return (
       <div>
         <table className="table">
-          <thead className="bg-info">
+          <thead className="bg">
             <tr>
               <th scope="col" className = "text-center">DATE</th>
                <th scope="col" className = "text-center">REQUESTED EMPLOYEE</th>

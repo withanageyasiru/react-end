@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import But from './viewdetailbutton'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput,MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput,MDBTable, MDBTableBody, MDBTableHead , MDBFormInline} from 'mdbreact';
 class Assetsadd extends Component {
 
     constructor()   
@@ -11,7 +11,7 @@ class Assetsadd extends Component {
        this.state = {
             id:98,
             arr:[],
-
+            
          }
     
     }
@@ -27,7 +27,7 @@ class Assetsadd extends Component {
       
        console.log(data)
 
-       let url =  "http://104.248.24.192:8080/api/auth/viewBy";
+       let url =  localStorage.getItem('baseUrl') + "/api/auth/viewBy";
        Axios.post(url,data)
        .then(response=>{
         
@@ -47,18 +47,11 @@ class Assetsadd extends Component {
     handleChange = (event) =>
     {
        event.preventDefault()
-       console.log(event.target.name)
-       console.log(event.target.value)
        this.setState({
 
-           
            // [event.target.name]:event.target.value
            // [event.target.idn]:event.target.value,
-            [event.target.name]:event.target.value,
-           
-            
-           
-            
+      [event.target.name]:event.target.value,
            
        })
     }
@@ -68,6 +61,7 @@ class Assetsadd extends Component {
     render() { 
         
         return ( 
+           
              
             <MDBContainer>
             <form>
@@ -77,13 +71,17 @@ class Assetsadd extends Component {
          <div className="grey-text">
             
             <MDBInput  type="number" label="User Id"  name='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />&nbsp;
+            <MDBCol md="6">
+               <MDBInput hint="Search" name='id' type="text" containerClass="mt-0" onChange={this.handleChange} />
+            </MDBCol>
             </div>
+
             </MDBCol>
             <MDBCol md='6'>
        
-            <MDBBtn outline color="light-green lighten-1" onClick={this.handleSubmit=this.handleSubmit.bind(this)}> Search..
-               <MDBIcon far icon="paper-plane" className="ml-1" />
-               </MDBBtn>
+            <MDBBtn outline floating onClick={this.handleSubmit=this.handleSubmit.bind(this)}>.
+               <MDBIcon icon="search" size="lg"/>
+            </MDBBtn>
                
                </MDBCol>
           </MDBRow>

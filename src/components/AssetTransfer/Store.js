@@ -47,7 +47,7 @@ export default class Store2 extends Component {
 
         // var data = 'laptop';
         //var data = this.arequest_type;
-        axios.get('http://104.248.24.192:8080:8000/api/getDepartmentData')
+        axios.get(localStorage.getItem("baseUrl") + 'api/getDepartmentData')
 
             //then(function (res) {return Console.log(res.data);}); 
             .then(res => {
@@ -64,7 +64,7 @@ export default class Store2 extends Component {
 
         // var data = 'laptop';
         //var data = this.arequest_type;
-        axios.get('http://104.248.24.192:8080:8000/api/getUserData')
+        axios.get(localStorage.getItem("baseUrl") + 'api/getUserData')
 
             //then(function (res) {return Console.log(res.data);}); 
             .then(res => {
@@ -81,7 +81,7 @@ export default class Store2 extends Component {
 
         // var data = 'laptop';
         //var data = this.arequest_type;
-        axios.get('http://104.248.24.192:8080:8000/api/getAssetID')
+        axios.get(localStorage.getItem("baseUrl") + 'api/getAssetID')
 
             //then(function (res) {return Console.log(res.data);}); 
             .then(res => {
@@ -100,7 +100,7 @@ export default class Store2 extends Component {
 
         // var data = 'laptop';
         //var data = this.arequest_type;
-        axios.get('http://104.248.24.192:8080:8000/api/getAssetType')
+        axios.get(localStorage.getItem("baseUrl") + 'api/getAssetType')
 
             //then(function (res) {return Console.log(res.data);}); 
             .then(res => {
@@ -187,7 +187,7 @@ export default class Store2 extends Component {
         //prepare data tobe sent to the api call
 
         //calling api
-        axios.post('http://104.248.24.192:8080:8000/api/transfer/store', {
+        axios.post(localStorage.getItem("baseUrl") + 'api/transfer/store', {
             transfer_reason: this.state.transfer_reason,
             transfer_fromDept: this.state.transfer_fromDept,
             transfer_fromUser: this.state.transfer_fromUser,

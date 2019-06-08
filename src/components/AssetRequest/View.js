@@ -18,7 +18,7 @@ export default class View extends Component {
     }
     
     componentDidMount(){
-        axios.get('http://104.248.24.192:8080/api/requests')
+        axios.get(localStorage.getItem("baseUrl") + "api/requests")
         .then(response=>{
           this.setState({
             arequests:response.data
@@ -51,7 +51,7 @@ onDelete(arequest_id){
 */
   async onApprove(arequest_id){
   await this.setState({ arequests_status: 1 })
-    axios.put('http://104.248.24.192:8080/api/request/approve/'+arequest_id,  {arequests_status:this.state.arequests_status} )
+    axios.put(localStorage.getItem("baseUrl") + "api/request/approve/" +arequest_id,  {arequests_status:this.state.arequests_status} )
     
 // then(function (res) {return Console.log(res.data);}); 
 .then(res => {
@@ -67,7 +67,7 @@ this.setState({ alert_message: "error" });
     await this.setState({ arequests_status: 0 });
     console.log(this.state.arequests_status);
 
-    axios.put('http://104.248.24.192:8080/api/request/reject/'+arequest_id,  {arequests_status:this.state.arequests_status} )
+    axios.put(localStorage.getItem("baseUrl") + "api/request/reject/" +arequest_id,  {arequests_status:this.state.arequests_status} )
     
     // then(function (res) {return Console.log(res.data);}); 
     .then(res => {

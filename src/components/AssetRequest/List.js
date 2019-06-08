@@ -23,7 +23,7 @@ export default class List extends Component {
     this.setState({
       type : this.props.type
     })
-    axios.get('http://104.248.24.192:8080/api/auth/requests')
+    axios.get(localStorage.getItem("baseUrl") + "api/auth/requests")
       .then(response => {
         this.setState({
           arequests: response.data
@@ -34,7 +34,7 @@ export default class List extends Component {
 
 
   onDelete(arequest_id) {
-    axios.delete('http://104.248.24.192:8080/api/auth/request/delete/' + arequest_id)
+    axios.delete(localStorage.getItem("baseUrl") + "api/auth/request/delete/" + arequest_id)
       .then(response => {
         //removing the deleted items from the front end 
         var arequests = this.state.arequests;

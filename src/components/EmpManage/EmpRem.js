@@ -73,17 +73,17 @@ this.setState({
       <MDBRow>
         <MDBCol md="6">
           <form>
-            <p className="h5 text-center mb-4">delete form...</p>
+            <p className="h5 text-center mb-4">Remove Employee</p>
             <div className="grey-text">
             {/* <MDBInput  type="text" label="Asset Type"  name='types'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
               
                 <MDBInput  type="text" label="Brand Name"  name='brandName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} /> */}
-                <MDBInput  type="number" label="User Id"  id='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="number" label="User Code"  id='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
              
               
               
               <MDBBtn outline color="primary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
-                Delete <MDBIcon far icon="paper-plane" className="ml-1" />
+                Delete <i class="fas fa-ban"></i>
               </MDBBtn>
               
             </div>

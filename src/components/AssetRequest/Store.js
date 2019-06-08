@@ -72,7 +72,7 @@ export default class Store extends Component {
         //prepare data tobe sent to the api call
         
         //calling api
-        axios.post('http://104.248.24.192:8080/api/auth/astreq', {
+        axios.post(localStorage.getItem("baseUrl") + "api/auth/astreq", {
             id: this.state.arequest_id,
             from: this.state.arequest_from,
             to: this.state.arequest_to,

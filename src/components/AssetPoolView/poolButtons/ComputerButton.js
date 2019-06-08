@@ -43,7 +43,7 @@ PutReq=(e)=>{
  const data = this.state
  console.log(data)
  e.preventDefault();
- Axios.post("http://104.248.24.192:8080/api/auth/astreq", {
+ Axios.post(localStorage.getItem("baseUrl") + "api/auth/astreq", {
      id:this.props.val.id,
     from: this.state.from,
     to: this.state.to,
@@ -69,18 +69,9 @@ PutReq=(e)=>{
 handleChange = (event) =>
      {
         event.preventDefault()
-        console.log(event.target.name)
-        console.log(event.target.value)
         this.setState({
-                     
-            
              [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-            
-             
-            
+   
         })
      }
 

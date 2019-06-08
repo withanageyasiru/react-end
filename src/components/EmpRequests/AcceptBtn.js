@@ -87,8 +87,8 @@ export default class AcceptBtn extends Component {
     //let token = document.head.querySelector('meta[name="csrf-token"]');
     //this.login();
     var url;// eslint-disable-next-line
-    if (this.state.status == 1) {  url = "http://104.248.24.192:8080/api/auth/responhead" ; } // eslint-disable-next-line
-    if (this.state.status == 3) {  url = "http://104.248.24.192:8080/api/auth/responit" ; } // eslint-disable-next-line
+    if (this.state.status == 1) {  url = localStorage.getItem("baseUrl") + "api/auth/responhead" ; } // eslint-disable-next-line
+    if (this.state.status == 3) {  url = localStorage.getItem("baseUrl") + "api/auth/responit" ; } // eslint-disable-next-line
     var postData = {
       id: this.state.notiId,
       response: this.state.respond,

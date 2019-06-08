@@ -35,7 +35,7 @@ class Tess extends Component {
        
         console.log(data)
 
-        let url = "http://104.248.24.192:8080/api/auth/updateAssets";
+        let url = localStorage.getItem("baseUrl") + "api/auth/updateAssets";
         Axios.post(url, data)
             .then((res) => {
                 
@@ -51,31 +51,8 @@ class Tess extends Component {
      handleChange = (event) =>
      {
         event.preventDefault()
-        console.log(event.target.name)
-        console.log(event.target.value)
         this.setState({
-
-            
-            // [event.target.name]:event.target.value
-            // [event.target.idn]:event.target.value,
-            
-            
             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-            
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-            //  [event.target.name]:event.target.value,
-             
-            
         })
      }
 

@@ -11,7 +11,7 @@ export default class List2 extends Component {
 
       //calling API
   componentDidMount(){
-    axios.get('http://104.248.24.192:8080:8000/api/transfers')
+    axios.get(localStorage.getItem("baseUrl") + 'api/transfers')
     .then(response=>{
       this.setState({
         transfers:response.data
@@ -21,7 +21,7 @@ export default class List2 extends Component {
 
 
 onDelete(transfer_id){
-    axios.delete('http://104.248.24.192:8080:8000/api/transfer/delete/'+transfer_id)
+    axios.delete(localStorage.getItem("baseUrl") + 'api/transfer/delete/'+transfer_id)
     .then(response=>{ 
         //removing the deleted items from the front end 
       var transfers=this.state.transfers;

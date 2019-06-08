@@ -27,7 +27,7 @@ class Login extends React.Component {
 
     apicall() {
 
-        let url = "http://104.248.24.192:8080/api/auth/login";
+        let url = localStorage.getItem("baseUrl") + "api/auth/login";
         let postData = {
             email: this.state.email,
             password: this.state.password
@@ -52,10 +52,11 @@ class Login extends React.Component {
                 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.access_token;
                 localStorage.setItem('Authorization' , 'Bearer ' + res.data.access_token)
 
-                Axios.get("http://104.248.24.192:8080/api/auth/user")
+                Axios.get(localStorage.getItem("baseUrl")+"api/auth/user")
                 .then((res) => {
                     
                     this.props.setLevel(res.data.status);
+                    localStorage.setItem('userStatus', res.data.status );
                     console.log(res.data.status);
 
                 })

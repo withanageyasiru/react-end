@@ -1,5 +1,6 @@
 import React from 'react';
 import Routes from './Routes';
+import Axios from 'axios';
 
 
 class App extends React.Component {
@@ -10,15 +11,24 @@ class App extends React.Component {
             isAuthenticated: false,
             isAuthenticating: true,
             accessToken: "",
-            levelOfAuthentication: 9 ,
-            baseUrl : "http://127.0.0.1:8000/"
+            levelOfAuthentication: 9,
+            baseUrl : "http://127.0.0.1:8000/",
+            nodeUrl : "http://127.0.0.1:3001/",
+            //baseUrl : "http://127.0.0.1:8000/",
+            //baseUrl : "http://104.248.24.192:8080/",
+            //nodeUrl : "http://104.248.24.192:3001/"
         };
     }
 
     UNSAFE_componentWillMount() {
         localStorage.setItem('baseUrl' , this.state.baseUrl)
+        localStorage.setItem('nodeUrl' , this.state.nodeUrl)
+
+        Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        Axios.defaults.headers.common['Authorization'] = localStorage.getItem("Authorization");
         this.setState({
-            accessToken : localStorage.getItem('Authorization')
+            accessToken : localStorage.getItem('Authorization'),
+            levelOfAuthentication : localStorage.getItem('userStatus')
         })
         console.log(localStorage.getItem('Authorization'));
 }

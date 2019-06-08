@@ -39,7 +39,7 @@ PutReq=(e)=>{
   //this.props.val.id
   //let url = "http://127.0.0.1:8000/api/auth/astreq";
   e.preventDefault();
-  Axios.post("http://104.248.24.192:8080/api/auth/astreq", {
+  Axios.post(localStorage.getItem("baseUrl") + "api/auth/astreq", {
     id:this.props.val.id,
     from: this.state.from,
     to: this.state.to,
@@ -79,13 +79,6 @@ render() {
         this.state.arri.map(far =>{
             return(
               <div>
-              {/* <MDBListGroup style={{ width: "22rem" }}key={far.id}>
-                <MDBListGroupItem>{far.id}</MDBListGroupItem>
-                <MDBListGroupItem>{far.status}</MDBListGroupItem>
-                <MDBListGroupItem>{far.availability}</MDBListGroupItem>
-                 <MDBListGroupItem>{far.type}</MDBListGroupItem>
-               
-               </MDBListGroup> */}
           <div className="col-sm-10">
                <h6>Asset Details..</h6>
                <b>Asset ID: {far.id}</b><br/>

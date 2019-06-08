@@ -27,7 +27,7 @@ class Assetsadd extends Component {
       
        console.log(data)
 
-       let url = "http://104.248.24.192:8080/api/auth/asstDep";
+       let url = localStorage.getItem("baseUrl") + "api/auth/asstDep";
        Axios.post(url,data)
        .then(response=>{
         

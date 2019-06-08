@@ -38,7 +38,7 @@ class NotiMsg extends Component {
 
   functionSetBreakdown(){
     
-    var url = "/breakdown/store";
+    var url = localStorage.getItem("baseUrl") + "/breakdown/store";
 
     axios.get(url, {
       notiId: this.state.notiId,

@@ -87,9 +87,7 @@ class Tess extends Component {
            {this.state.msg=="fail"?<Msgs2 />:null}
      
           <form>
-          <MDBRow>
-   <MDBCol md="6" className="mb-3">
-            <p className="h5 text-center mb-4">update form...</p>
+            <p className="h5 text-center mb-4">Update Employee details</p>
             <div className="grey-text">
             <MDBInput  type="number" label="User Id"  id='id'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
               
@@ -100,8 +98,6 @@ class Tess extends Component {
              
               <MDBInput  type="number" label="Activeness"  name='activeness'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
               </div>
-           </MDBCol>
-           <MDBCol md="6" className="mb-3">
            <div className="grey-text">
              
               <MDBInput  type="text" label="Email"  name='email'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
@@ -111,20 +107,9 @@ class Tess extends Component {
               
               
               <MDBBtn outline color="primary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
-                Update<MDBIcon far icon="paper-plane" className="ml-1" />
+                Update <i class="far fa-edit"></i>
               </MDBBtn>
               </div>
-           
-          
-           
-         
-       
-           </MDBCol>
-           {/* <MDBCol md="6" className="mb-3">
-    
-     
-             </MDBCol> */}
-     </MDBRow>
           </form>
        
      

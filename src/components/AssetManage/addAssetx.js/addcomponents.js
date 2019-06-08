@@ -8,19 +8,21 @@ class Tess extends Component {
  
         this.state = {
            
-             code:0,
-             type:"",
-             brandName:"",
-             price:"",
-             warrantyStatus:0,
-             assetStatus:0,
-             availability:0,
-             expireDate:"",
-             componentType:"",
-             
-             
-            
- 
+          code: "",
+          brandName: "",
+          code: "",
+          componentType: "",
+          expireDate: "",
+          invoiceNumber: 0 ,
+          price: 0,
+          productKey: "",
+          purchaceDate: "",
+          serielNumber: "",
+          serviseTag: "",
+          supplier: "",
+          type: "" ,
+          warrentYears: "",
+
           }
      
      }
@@ -35,7 +37,7 @@ class Tess extends Component {
        
         console.log(data)
 
-        let url =  localStorage.getItem("baseUrl") + "api/auth/addAssets";
+        let url =  localStorage.getItem("baseUrl") + "api/auth/addCompo";
         Axios.post(url, data)
             .then((res) => {
                 
@@ -51,21 +53,8 @@ class Tess extends Component {
      handleChange = (event) =>
      {
         event.preventDefault()
-        console.log(event.target.name)
-        console.log(event.target.value)
         this.setState({
              [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-            
-             
-            
         })
      }
 
@@ -83,12 +72,22 @@ class Tess extends Component {
          <MDBInput  type="text" label="Asset Type"  name='type'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
               
                 <MDBInput  type="text" label="Brand Name"  name='brandName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-                <MDBInput  type="number" label="Asset Code"  name='code'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="text" label="Asset Code"  name='code'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
                 <MDBInput  type="number" label="Price"  name='price'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-                <MDBInput  type="number" label="Warrenty Status"  name='warrantyStatus'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="text" label="Type"  name='type'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="number" label="Product Key"  name='productKey'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="number" label="Seriel Number"  name='serielNumber'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="number" label="Servise Tag"  name='serviseTag'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="number" label="Invoice Number"  name='invoiceNumber'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="number" label="Supplier"  name='price'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="number" label="Asset Availability"  name='availability'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
                 <MDBInput  type="number" label="Asset Status"  name='assetStatus'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
                 <MDBInput  type="number" label="Asset Availability"  name='availability'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              </div>
+            
+            
+            
+            
+            </div>
            </MDBCol>
            <MDBCol md="6" className="mb-3">
            <div className="grey-text">

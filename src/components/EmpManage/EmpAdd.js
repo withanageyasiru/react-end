@@ -10,15 +10,15 @@ class Tess extends Component {
  
         this.state = {
            
-          firstName:"namal",
-          lastName:"jjj",
+          firstName:"",
+          lastName:"",
+          nic : "",
           status:0,
-          activeness:0,
-          email:"cccc",
+          email:"",
           password:"",
-          departmentName:0,
-          msg:" ",
-            
+          password_confirmation : "",
+          department_id:0,
+         
              
             
  
@@ -36,7 +36,7 @@ class Tess extends Component {
        
         console.log(data)
 
-        let url =  "http://104.248.24.192:8080/api/auth/addUser";
+        let url =  localStorage.getItem("baseUrl")+"api/auth/addUser";
         Axios.post(url, data)
             .then((res) => {
                 this.setState({
@@ -58,25 +58,8 @@ class Tess extends Component {
      handleChange = (event) =>
      {
         event.preventDefault()
-        console.log(event.target.name)
-        console.log(event.target.value)
         this.setState({
-
-            
-            // [event.target.name]:event.target.value
-            // [event.target.idn]:event.target.value,
-             
-            
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             [event.target.name]:event.target.value,
-             
-             
-            
+             [event.target.name]:event.target.value,  
         })
      }
 
@@ -98,33 +81,22 @@ class Tess extends Component {
          
         
           <form>
-          <MDBRow>
-      <MDBCol md="6" className="mb-3">
             <p className="h5 text-center mb-4">Add Employees</p>
             <div className="grey-text">
-            <MDBInput  type="text" label="First Name"  name='firstName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="text" label="First Name"  name='firstName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
                 <MDBInput  type="text" label="Last Name"  name='lastName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
                 <MDBInput  type="number" label="Status"  name='status'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="number" label="Activeness"  name='activeness'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              </div>
-              </MDBCol>
-              <MDBCol md="6" className="mb-3">
-              <div className="grey-text">
-              <MDBInput  type="text" label="Email"  name='email'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="text" label="Passward"  name='password'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              <MDBInput  type="text" label="Department name"  name='departmentName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
-              
-              
-              
-              <MDBBtn outline color="primary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
-                Send <MDBIcon far icon="paper-plane" className="ml-1" />
-              </MDBBtn>
-              
+                <MDBInput  type="text" length="9" label="NIC No"  name='nic'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="text" label="Email"  name='email'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="text" label="Passward"  name='password'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="text" label="Password Confirmation"  name='password_confirmation'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+                <MDBInput  type="text" label="Department"  name='departmentName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />               
             </div>
              
-            </MDBCol>
             
-      </MDBRow>
+      <MDBBtn outline color="primary"onClick={this.handleSubmit=this.handleSubmit.bind(this)}>
+                Add <i class="fas fa-plus-circle"></i>
+              </MDBBtn>
           </form>
       
     </MDBContainer>

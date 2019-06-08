@@ -179,7 +179,7 @@ export default class Export extends Component {
 
     async   export() {
 
-        axios.post('http://104.248.24.192:8080/api/auth/exports', {
+        axios.post(localStorage.getItem("baseUrl") + 'api/auth/exports', {
             data: this.state.selections
         })
             .then(response => {

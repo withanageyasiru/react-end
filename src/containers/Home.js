@@ -50,11 +50,11 @@ class DoubleNavigationPage extends React.Component {
     //       return this.state.toggle== true ? <div style={divStyle}>Hello World!</div> : <div>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkdjf</div>;
     //   }
     
-    all = (this.props.levelAuth === 9);
-    admin = (this.props.levelAuth === 3);
-    depth = (this.props.levelAuth === 1);
-    finan = (this.props.levelAuth === 2);
-    emplo = (this.props.levelAuth === 0);
+    all = (this.props.levelAuth === "9");
+    admin = (this.props.levelAuth === "3");
+    depth = (this.props.levelAuth === "1");
+    finan = (this.props.levelAuth === "2");
+    emplo = (this.props.levelAuth === "0");
 
 
     render() {
@@ -67,8 +67,8 @@ class DoubleNavigationPage extends React.Component {
         var Stylet = {
             width: '240px',
             height: '180px'
-        };
-
+        };    
+        
         return (
         <div className="Home">
             <SideNav
@@ -119,27 +119,42 @@ class DoubleNavigationPage extends React.Component {
                                 <div style={{ paddingLeft: '50px' }} >Request Asset</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/asset_breakdown">
+                        <NavItem
+                            eventKey="/home/asset_breakdown"
+                            hidden={!(this.emplo || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Report Breakdown</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/asset_break_manage">
+                        <NavItem
+                            eventKey="/home/asset_break_manage"
+                            hidden={!(this.admin || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Manage Breakdown</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/asset_transfer">
+                        <NavItem
+                            eventKey="/home/asset_transfer"
+                            hidden={!(this.admin || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Transfer Assets</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/asset_manage">
+                        <NavItem
+                            eventKey="/home/asset_manage"
+                            hidden={!(this.finan || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Manage Assets</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/asset_category">
+                        <NavItem
+                            eventKey="/home/asset_category"
+                            hidden={!(this.finan || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Manage Asset Categories</div>
                             </NavText>
@@ -147,34 +162,53 @@ class DoubleNavigationPage extends React.Component {
                     </NavItem>
 
 
-                    <NavItem eventKey="Employee" expanded={false}>
+                    <NavItem
+                        eventKey="Employee"
+                        expanded={false}
+                        hidden={!(this.admin || this.depth || this.all)}
+                    >
                         <NavIcon>
                             <i className="fas fa-user-tie" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Employees
                         </NavText>
-                        <NavItem eventKey="/home/emp_details">
+                        <NavItem
+                            eventKey="/home/emp_details"
+                            hidden={!(this.admin || this.depth || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Employee Details</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/emp_assets">
+                        <NavItem
+                            eventKey="/home/emp_assets"
+                            hidden={!(this.admin || this.depth || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Employee Assets</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/emp_manage">
+                        <NavItem
+                            eventKey="/home/emp_manage"
+                            hidden={!(this.admin || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Manage Employees</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/emp_requests">
+                        <NavItem
+                            eventKey="/home/emp_requests"
+                            hidden={!(this.admin || this.depth || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Asset Requests</div>
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/home/emp_resignation">
+                        <NavItem
+                            eventKey="/home/emp_resignation"
+                            hidden={!(this.admin || this.depth || this.emplo || this.all)}
+                        >
                             <NavText>
                                 <div style={{ paddingLeft: '50px' }} >Resignation</div>
                             </NavText>
@@ -182,7 +216,11 @@ class DoubleNavigationPage extends React.Component {
                     </NavItem>
 
 
-                    <NavItem eventKey="Departments" expanded={false}>
+                    <NavItem
+                        eventKey="Departments"
+                        expanded={false}
+                        hidden={!(this.admin || this.all)}
+                    >
                         <NavIcon>
                             <i className="fas fa-building" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
@@ -202,7 +240,10 @@ class DoubleNavigationPage extends React.Component {
                     </NavItem>
 
 
-                    <NavItem eventKey="Records" expanded={false}>
+                    <NavItem
+                        eventKey="Records"
+                        expanded={false}
+                    >
                         <NavIcon>
                             <i className="fas fa-file-medical-alt" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
@@ -220,7 +261,9 @@ class DoubleNavigationPage extends React.Component {
                             </NavText>
                         </NavItem>
                     </NavItem>
+                    
                     <hr />
+                    
                     <NavItem eventKey="#" onClick={this.handleLogout}>
                         <NavIcon>
                             <i className="fas fa-power-off" style={{ fontSize: '1.75em' }} />

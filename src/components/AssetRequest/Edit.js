@@ -89,7 +89,7 @@ export default class Edit extends Component {
         //   = this.state;
         //calling api
 
-        axios.put('http://104.248.24.192:8080/api/auth/request/update/' + this.props.match.params.id, {
+        axios.put(localStorage.getItem("baseUrl") + "api/auth/request/update/" + this.props.match.params.id, {
             arequest_id: this.state.arequest_id,
             arequest_from: this.state.arequest_from,
             arequest_to: this.state.arequest_to,

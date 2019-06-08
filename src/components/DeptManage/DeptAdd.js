@@ -28,7 +28,7 @@ class Tess extends Component {
        
         console.log(data)
 
-        let url =  "http://104.248.24.192:8080/api/auth/createDep";
+        let url =  localStorage.getItem("baseUrl") + "api/auth/createDep";
         Axios.post(url, data)
             .then((res) => {
                 this.setState({
