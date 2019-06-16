@@ -36,16 +36,16 @@ class Tess extends Component {
     return(
       <div className="AssetEdit">
         <MDBContainer>
-        <Menu className="ui pointing four item menu">
-                        <Menu.Item
+        <Menu className="ui pointing five item menu">
+                        {/* <Menu.Item
                         name="/home/asset_manage/add/computers"
                         active={activeItem === "/home/asset_manage/add/computers"}
                         onClick={this.handleItemClick}
                         >
                         Computers
-                        </Menu.Item>
+                        </Menu.Item> */}
 
-                        {/* <Menu.Item 
+                        <Menu.Item 
                         name="/home/asset_manage/desktops" 
                         active={activeItem === "/home/asset_manage/desktops"} 
                         onClick={this.handleItemClick}>
@@ -57,7 +57,7 @@ class Tess extends Component {
                         active={activeItem === "/home/asset_manage/laptops"} 
                         onClick={this.handleItemClick}>
                         Laptops
-                        </Menu.Item> */}
+                        </Menu.Item>
 
                         <Menu.Item 
                         name="/home/asset_manage/add/ups"
@@ -92,7 +92,12 @@ class Tess extends Component {
                   {/* <Route  path="/home/asset_manage/add/computers" component={com} />  */}
                   <div scrollY>
                     <AuthRoute
-                      path="/home/asset_manage/add/computers"
+                      path="/home/asset_manage/add/laptops"
+                      component={com}
+                      props={this.props}
+                    />
+                     <AuthRoute
+                      path="/home/asset_manage/add/desktops"
                       component={com}
                       props={this.props}
                     />

@@ -2,7 +2,11 @@
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import { MDBContainer } from 'mdbreact';
 import React, { Component } from 'react';
-import But from '../poolButtons/ComputerButton'
+import ButLap from '../AssetManageBreakdown/MoreDetaitlsMenu/ComputerButton'
+import ButDesktop from '../AssetManageBreakdown/MoreDetaitlsMenu/ComputerButton'
+import ButComponent from '../AssetManageBreakdown/MoreDetaitlsMenu/ComputerButton'
+import ButOther from '../AssetManageBreakdown/MoreDetaitlsMenu/OthersButton'
+//import But from '../poolButtons/ComputerButton'
 import axios from 'axios';
 
 class BasicTable extends Component {
@@ -19,6 +23,7 @@ class BasicTable extends Component {
         type:"com"
        
                   };
+        this.buttonSwitcher = this.buttonSwitcher.bind(this);
     
     }
                           
@@ -55,8 +60,16 @@ axios.post(url,{type:'computers',})
 console.log(this.state.arr);
 });
 
+}
 
-
+buttonSwitcher(e){
+    switch(e.type){
+        case "other": return(<div> <ButOther val={e} /> </div>);
+        case "laptop": return(<div> <ButLap val={e} /> </div>);
+        case "desktop": return(<div> <ButDesktop val={e} /> </div>);
+        case "component": return(<div> <ButComponent val={e} /> </div>);
+        //case "laptop": return(<div> <But val={e} /> </div>);
+    }
 }
 
   render() {
@@ -82,8 +95,9 @@ console.log(this.state.arr);
             <tr>
               <th scope="col" className="text-center">ASSET CODE</th>
               <th scope="col" className="text-center">BRAND NAME</th>
-              <th scope="col" className="text-center">COMPUTER TYPE</th>
+              <th scope="col" className="text-center">ASSET TYPE</th>
               <th scope="col" className="text-center">WARRANTY STATUS</th>
+              <th scope="col" className="text-center"> SERIAL NUMBER</th>
               <th scope="col" className="text-center"> </th>
             </tr>
             </thead>
@@ -97,9 +111,10 @@ console.log(this.state.arr);
             <tr key={ari.id}>
          <td className="text-center">{ari.code}</td>
          <td className="text-center">{ari.brandName}</td>
-         <td className="text-center">{ari.computerType}</td>
+         <td className="text-center">{ari.type}</td>
          <td className="text-center">{ari.warrantyStatus}</td>
-         <td><But val={ari} /> </td>
+         <td className="text-center">{ari.serialNumber}</td>
+        <td> {this.buttonSwitcher(ari)} </td>
        </tr>
         
           )

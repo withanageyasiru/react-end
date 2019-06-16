@@ -68,9 +68,9 @@ console.log(this.state.arr);
        <MDBTable >
        <thead className="thead-dark">
             <tr>
-              <th scope="col" className="text-center">ID</th>
+              <th scope="col" className="text-center">ASSET CODE</th>
               <th scope="col" className="text-center">BRAND NAME</th>
-              <th scope="col" className="text-center">PRICE</th>
+              <th scope="col" className="text-center">COMPUTER TYPE</th>
               <th scope="col" className="text-center">WARRANTY STATUS</th>
               <th scope="col" className="text-center"> </th>
             </tr>
@@ -83,9 +83,9 @@ console.log(this.state.arr);
          this.state.arr.map(ari =>{
           return(
             <tr key={ari.id}>
-         <td className="text-center">{ari.id}</td>
+         <td className="text-center">{ari.code}</td>
          <td className="text-center">{ari.brandName}</td>
-         <td className="text-center">{ari.price}</td>
+         <td className="text-center">{ari.computerType}</td>
          <td className="text-center">{ari.warrantyStatus}</td>
          <td><But val={ari} /> </td>
        </tr>

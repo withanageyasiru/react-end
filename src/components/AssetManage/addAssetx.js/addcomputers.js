@@ -69,7 +69,7 @@ class Tess extends Component {
             {/* <p className="h5 text-center mb-4">Add assets</p> */}
             <div className="grey-text">
                 
-            <MDBInput  type="text" label="Asset Type"  name='type'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
+            {/* <MDBInput  type="text" label="Asset Type"  name='type'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} /> */}
               
               <MDBInput  type="text" label="Brand Name"  name='brandName'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
               <MDBInput  type="number" label="Asset Code"  name='code'  validate error="wrong"  success="right" onChange={this.handleChange=this.handleChange.bind(this)} />
